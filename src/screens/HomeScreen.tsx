@@ -1,17 +1,17 @@
+import { createBox, createText } from "@shopify/restyle";
 import React from "react";
-import { Text, View, Pressable } from "react-native";
+import { Pressable } from "react-native";
 
+import { Theme } from "../theme";
 import { ApplicationScreenProps } from "../types/navigation";
 
+const Box = createBox<Theme>();
+const Text = createText<Theme>();
+
 const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
-  // const { name, content } = route.params;
-  // console.log(name, "title and content", content);
   return (
-    <View
-      style={{ flex: 1 }}
-      // className="flex-1 items-center justify-center bg-red-400"
-    >
-      <Text>Home SCREEN</Text>
+    <Box width={"100%"} backgroundColor="cardPrimaryBackground">
+      <Text color="mainBackground">Home SCREEN</Text>
       <Pressable
         onPress={() =>
           navigation.navigate("Profile", {
@@ -21,7 +21,7 @@ const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
           })
         }
       >
-        <Text>See Profile</Text>
+        <Text color="mainForeground">See Profile</Text>
       </Pressable>
       <Pressable
         onPress={() =>
@@ -32,9 +32,9 @@ const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
           })
         }
       >
-        <Text>See About</Text>
+        <Text color="mainForeground">See About</Text>
       </Pressable>
-    </View>
+    </Box>
   );
 };
 
