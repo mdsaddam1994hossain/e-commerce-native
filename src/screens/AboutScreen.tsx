@@ -14,8 +14,8 @@ const AboutScreen = ({ route, navigation }: ApplicationScreenProps) => {
   console.log(id, name, details);
 
   return (
-    <Box backgroundColor="mainBackground">
-      <Text color="mainForeground">ABOUT SCREEN</Text>
+    <Box backgroundColor="blue">
+      <Text color="white">ABOUT SCREEN</Text>
       <Button title="Go to Home" onPress={() => navigation.navigate("Home")} />
     </Box>
   );

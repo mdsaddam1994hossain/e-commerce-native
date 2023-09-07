@@ -10,8 +10,15 @@ const Stack = createNativeStackNavigator<ApplicationStackParamList>();
 
 function StackNavigation() {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Home"
+        component={HomeScreen}
+      />
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="About" component={AboutScreen} />
       <Stack.Screen name="Login" component={AboutScreen} />

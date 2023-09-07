@@ -5,7 +5,7 @@ import { ApplicationScreenProps } from "../types/navigation";
 
 const LoginScreen = ({ route, navigation }: ApplicationScreenProps) => {
   const { id, name, email } = route.params;
-  console.log("id=", id, ",name=", name, ",email=", email);
+  console.log(id, name, email);
   return (
     <View>
       <Text>Login Screen</Text>
