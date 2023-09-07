@@ -1,15 +1,6 @@
 import { createTheme } from "@shopify/restyle";
 
 
-// import * as Font from 'expo-font';
-
-// const customFonts = {
-//   'Poppins-Regular': require('../assets/Poppins/Poppins-Regular.ttf'),
-//   'Poppins-Bold': require('../assets/Poppins/Poppins-Bold.ttf'),
-//   'Poppins-Italic': require('../assets/Poppins/Poppins-Italic.ttf'),
-//   // Add more font weights and styles as needed
-// };
-// Font.loadAsync(customFonts);
 
 const palette = {
   blue: "#40BFFF",
@@ -49,13 +40,18 @@ const theme = createTheme({
   textVariants: {
     header: {
       fontWeight: "bold",
-      fontSize: 34,
+      fontSize: 50,
+      fontFamily: 'Poppins-Bold',
     },
     body: {
       fontSize: 16,
       lineHeight: 24,
+      fontFamily: 'Poppins-Regular',
     },
     defaults: {
+      fontSize: 16,
+      lineHeight: 24,
+      fontFamily: 'Poppins-Regular',
       // We can define a default text variant here.
     },
   },

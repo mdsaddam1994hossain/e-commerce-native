@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 
 import AboutScreen from "./screens/AboutScreen";
-import HomeScreen from "./screens/HomeScreen";
+import LoginScreen from "./screens/LoginScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import { ApplicationStackParamList } from "./types/navigation";
 
@@ -11,17 +11,16 @@ const Stack = createNativeStackNavigator<ApplicationStackParamList>();
 function StackNavigation() {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Login"
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen
         options={{ headerShown: false }}
-        name="Home"
-        component={HomeScreen}
+        name="Login"
+        component={LoginScreen}
       />
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="About" component={AboutScreen} />
-      <Stack.Screen name="Login" component={AboutScreen} />
     </Stack.Navigator>
   );
 }
