@@ -1,9 +1,9 @@
 import { createBox } from "@shopify/restyle";
 import React from "react";
 
-import { Theme } from "../theme";
+import { ReStyleTheme } from "../theme/theme";
 
-const Box = createBox<Theme>();
+const Box = createBox<ReStyleTheme>();
 
 const LogoIcon = () => {
   return (

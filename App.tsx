@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import * as Font from "expo-font";
 
 import StackNavigation from "./src/navigation";
-import theme from "./src/theme";
+import theme from "./src/theme/theme";
 import { View, Text, StyleSheet } from "react-native";
 
 const customFonts = {
@@ -14,8 +14,6 @@ const customFonts = {
   "Poppins-Medium": require("./assets/fonts/Poppins-Medium.ttf"),
   "Poppins-Bold": require("./assets/fonts/Poppins-Bold.ttf"),
   "Poppins-Italic": require("./assets/fonts/Poppins-Italic.ttf"),
-
-  // Add more font weights and styles as needed
 };
 
 async function loadFonts() {

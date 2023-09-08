@@ -1,9 +1,9 @@
 import { TouchableOpacity } from "react-native";
 import React, { FC } from "react";
 import { createText } from "@shopify/restyle";
-import { Theme } from "src/theme";
+import { ReStyleTheme } from "src/theme/theme";
 
-const Text = createText<Theme>();
+const Text = createText<ReStyleTheme>();
 
 type Props = {
   onPress: () => void;
@@ -14,7 +14,12 @@ type Props = {
 const SocialButton: FC<Props> = ({ onPress, style, title }) => {
   return (
     <TouchableOpacity onPress={onPress} style={style}>
-      <Text color="grey" textAlign="center" fontFamily="Poppins-Bold">
+      <Text
+        color="grey"
+        textAlign="center"
+        fontSize={14}
+        fontFamily="Poppins-Bold"
+      >
         {title}
       </Text>
     </TouchableOpacity>
