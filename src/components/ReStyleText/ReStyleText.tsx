@@ -1,4 +1,4 @@
 import { createText } from "@shopify/restyle";
-import { ReStyleTheme } from "../../../src/theme/theme";
+import { ReStyleTheme, TTextVariants } from "../../theme/theme";
 
-export const ReStyleText = createText<ReStyleTheme>();
+export const ReStyleText = createText<ReStyleTheme & TTextVariants>();

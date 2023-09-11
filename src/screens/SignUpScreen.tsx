@@ -8,9 +8,12 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { ReStyleTheme } from "../theme/theme";
 import { ApplicationScreenProps } from "../types/navigation";
 import PrimaryButton from "../../src/components/button/PrimaryButton";
+import { space } from "../../src/theme/spacing";
 
 const Box = createBox<ReStyleTheme>();
 const Text = createText<ReStyleTheme>();
+
+const { sm } = space;
 
 const SignUpScreen = ({ navigation }: ApplicationScreenProps) => {
   const [isEmailFocused, setIsEmailFocused] = useState(false);
@@ -30,15 +33,16 @@ const SignUpScreen = ({ navigation }: ApplicationScreenProps) => {
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <ScrollView>
+      <ScrollView style={styles.siteSpace}>
         <Box flex={1} paddingTop="xxxl">
           <LogoIcon />
-          <Box paddingTop="m"></Box>
+
           <Text
             color="dark"
             fontFamily="Poppins-Bold"
             fontSize={16}
             textAlign="center"
+            paddingTop={"m"}
           >
             Let's Get Started
           </Text>
@@ -154,7 +158,7 @@ const SignUpScreen = ({ navigation }: ApplicationScreenProps) => {
           <PrimaryButton
             text={"Test Primary"}
             buttonVariant={"primary"}
-            textVariant={"primaryButton"}
+            textVariant={"textHeader"}
             onPress={onSignin}
           />
         </Box>
@@ -172,7 +176,8 @@ const styles = StyleSheet.create({
 
   input: {
     height: 48,
-    margin: 6,
+    marginVertical: 6,
+    width: "100%",
     borderWidth: 1,
     borderColor: "#EBF0FF",
     paddingHorizontal: 10,
@@ -182,7 +187,7 @@ const styles = StyleSheet.create({
   },
   signUpButton: {
     height: 57,
-    margin: 12,
+    marginVertical: 12,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -204,6 +209,9 @@ const styles = StyleSheet.create({
 
   focusedInput: {
     borderColor: "#40BFFF", // Border color when focused
+  },
+  siteSpace: {
+    paddingHorizontal: sm,
   },
 });
 

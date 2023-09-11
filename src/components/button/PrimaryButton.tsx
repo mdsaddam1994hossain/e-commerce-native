@@ -5,7 +5,7 @@ import { ReStyleTheme, TTextVariants } from "../../theme/theme";
 import { ReStyleButton } from "../ReStyleButton/ReStyleButton";
 import { ReStyleText } from "../ReStyleText/ReStyleText";
 
-const Text = createText<ReStyleTheme>();
+// const Text = createText<ReStyleTheme>();
 
 type TPrimaryButtonProps = {
   text: string;
@@ -21,29 +21,22 @@ type TPrimaryButtonProps = {
         }
       >
     | undefined;
-  textVariant?: TTextVariants;
-
-  icon?: React.ReactNode;
+  textVariant?: TTextVariants | keyof ReStyleTheme["textVariants"];
 };
 
 const PrimaryButton: React.FC<TPrimaryButtonProps> = ({
   text,
-  icon,
   buttonVariant,
   textVariant,
   onPress,
   isChecked = true,
 }) => {
   return (
-    <>
-      <ReStyleButton variant={buttonVariant}>
-        <TouchableOpacity onPress={onPress} disabled={!isChecked}>
-          {icon}
-          {/* <ReStyleText variant={textVariant}>{text}</ReStyleText> */}
-          <Text color={"white"}>{text}</Text>
-        </TouchableOpacity>
-      </ReStyleButton>
-    </>
+    <ReStyleButton variant={buttonVariant}>
+      <TouchableOpacity onPress={onPress} disabled={!isChecked}>
+        <ReStyleText variant={"buttonText"}>{text}</ReStyleText>
+      </TouchableOpacity>
+    </ReStyleButton>
   );
 };
 

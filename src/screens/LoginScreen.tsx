@@ -14,9 +14,14 @@ import { ApplicationScreenProps } from "../types/navigation";
 import SocialButton from "../../src/components/button/SocialButton";
 import { KeyboardAvoidingView } from "react-native";
 import { ScrollView } from "react-native";
+import NotificationCard from "../../src/components/Notification/NotificationCard";
+import { space } from "../../src/theme/spacing";
+import PrimaryButton from "../../src/components/button/PrimaryButton";
 
 const Box = createBox<ReStyleTheme>();
 const Text = createText<ReStyleTheme>();
+
+const { sm } = space;
 
 const onSignin = () => {
   console.log("onSignin button click");
@@ -51,8 +56,14 @@ const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <ScrollView>
+      <ScrollView style={styles.siteSpace}>
         <Box flex={1} paddingTop="xxxl">
+          {/* <NotificationCard
+           
+            title="The Best Title"
+            description="Culpa cillum consectetur labore nulla nulla mag irure. Id cupla officia aute dolor amet deserunt ex proident."
+            date="April 30,2023 1:01 PM"
+          /> */}
           <LogoIcon />
           <Box paddingTop="m">
             <Text
@@ -108,24 +119,18 @@ const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
               />
             </Box>
 
-            <TouchableOpacity onPress={onSignin} style={styles.loginButton}>
-              <Text
-                color="white"
-                textAlign="center"
-                fontFamily="Poppins-Bold"
-                fontSize={14}
-              >
-                {" "}
-                Sign In
-              </Text>
-            </TouchableOpacity>
+            <PrimaryButton
+              text={"Sign In"}
+              buttonVariant={"primary"}
+              textVariant={"textHeader"}
+              onPress={onSignin}
+            />
 
             <Box
               flexDirection="row"
               justifyContent="center"
               alignItems="center"
               gap="s"
-              margin="s"
             >
               <Box flex={4} backgroundColor="light" height={1}></Box>
               <Box flex={2}>
@@ -209,7 +214,7 @@ const styles = StyleSheet.create({
 
   input: {
     height: 48,
-    margin: 6,
+    marginVertical: 6,
     borderWidth: 1,
     borderColor: "#EBF0FF",
     paddingHorizontal: 10,
@@ -217,24 +222,24 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     fontFamily: "Poppins-Regular",
   },
-  loginButton: {
-    height: 57,
-    margin: 12,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#40BFFF",
-    shadowOpacity: 0.4,
-    padding: 10,
-    elevation: 20,
-    borderRadius: 5,
-    shadowColor: "#40BFFF",
-    shadowOffset: { width: 0, height: 8 },
-    shadowRadius: 30,
-  },
+  // loginButton: {
+  //   height: 57,
+  //   marginVertical: 12,
+  //   display: "flex",
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   backgroundColor: "#40BFFF",
+  //   shadowOpacity: 0.4,
+  //   elevation: 20,
+  //   borderRadius: 5,
+  //   shadowColor: "#40BFFF",
+  //   shadowOffset: { width: 0, height: 8 },
+  //   shadowRadius: 30,
+  //   width: "100%",
+  // },
   socialButton: {
     height: 57,
-    margin: 8,
+    marginVertical: 6,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -255,6 +260,9 @@ const styles = StyleSheet.create({
   },
   focusedInput: {
     borderColor: "#40BFFF", // Border color when focused
+  },
+  siteSpace: {
+    paddingHorizontal: sm,
   },
 });
 

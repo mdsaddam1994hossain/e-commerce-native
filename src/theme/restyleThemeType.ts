@@ -17,6 +17,11 @@ export interface IButton {
   color?: string;
   paddingHorizontal?: string;
   textTransform?: string;
+  elevation?: number;
+  borderRadius?: number;
+  shadowColor?: string;
+  shadowOffset?: { width: number; height: number };
+  shadowRadius?: number;
 }
 
 export interface IBoxVariants {
@@ -35,14 +40,15 @@ export interface IBoxVariants {
 
 export interface IButtonVariants {
   defaults: {
-    height: number;
-    borderWidth: number;
+    height?: number;
+    width?: number | string;
+    borderWidth?: number;
     alignItems: string;
-    justifyContent: string;
-    paddingHorizontal: string;
+    justifyContent?: string;
+    paddingHorizontal?: string;
     marginEnd: string;
     borderColor: string;
-    borderRadius: number;
+    borderRadius?: number;
   };
   primary: {
     backgroundColor: string;

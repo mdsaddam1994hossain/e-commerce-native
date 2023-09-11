@@ -17,26 +17,40 @@ const theme = createTheme<TThimeProps>({
     tablet: 768,
     largeTablet: 1024,
   },
+  textInputVariants: {
+    defaults: {
+      padding: "auto",
+      fontSize: 16,
+      backgroundColor: "white",
+      borderRadius: 8,
+    },
+  },
   textVariants: {
     defaults: {
       fontSize: 14,
       color: "black",
     },
     heading: {
-      fontSize: 20,
-      color: "primary",
+      fontSize: 14,
+      color: "dark",
+      fontFamily: "Poppins-Bold",
     },
     subHeading: {
       fontSize: 18,
       color: "primary",
     },
+    buttonText: {
+      fontSize: 14,
+      color: "white",
+      fontFamily: "Poppins-Bold",
+    },
     textHeader: {
       fontSize: 16,
-      color: "black",
+      color: "white",
     },
     textHeaderBold: {
       fontSize: 16,
-      color: "black",
+      color: "white",
       fontWeight: "bold",
     },
     bodyText: {
@@ -56,12 +70,14 @@ const theme = createTheme<TThimeProps>({
       color: "primary",
     },
     bodyTextSmall: {
-      fontSize: 14,
-      color: "primary",
+      fontSize: 12,
+      color: "grey",
+      fontFamily: "Poppins-Regular",
     },
-    bodyTextSmallWhite: {
-      fontSize: 14,
-      color: "primary",
+    bodyTextSoSmall: {
+      fontSize: 10,
+      color: "dark",
+      fontFamily: "Poppins-Regular",
     },
     caption: {
       fontSize: 12,
@@ -85,12 +101,13 @@ const theme = createTheme<TThimeProps>({
       color: "white",
     },
     primaryButton: {
-      fontSize: 16,
-      fontFamily: "Inter_600SemiBold",
-      fontWeight: "bold",
-      color: "white",
+      fontSize: 14,
       paddingHorizontal: "lg",
-      textTransform: "capitalize",
+      elevation: 20,
+      borderRadius: 5,
+      shadowColor: "blue",
+      shadowOffset: { width: 0, height: 8 },
+      shadowRadius: 30,
     },
     defaultButton: {
       fontSize: 16,
@@ -124,17 +141,16 @@ const theme = createTheme<TThimeProps>({
   },
   buttonVariants: {
     defaults: {
-      height: 50,
-      borderWidth: 1,
+      height: 57,
+      width: "100%",
       alignItems: "center",
       justifyContent: "center",
-      paddingHorizontal: "lg",
       marginEnd: "sm",
       borderColor: "limsPlusGrey",
-      borderRadius: 10,
+      borderRadius: 5,
     },
     primary: {
-      backgroundColor: "limsPlusGrey",
+      backgroundColor: "blue",
     },
     secondary: {
       backgroundColor: "white",
