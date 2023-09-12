@@ -4,20 +4,13 @@ import { ReStyleBox } from "../ReStyleBox/ReStyleBox";
 import { ReStyleText } from "../ReStyleText/ReStyleText";
 
 type Props = {
-  feed?: boolean;
   icon?: string;
   title: string;
   description: string;
   date: string;
 };
 
-const NotificationCard: FC<Props> = ({
-  feed,
-  icon,
-  title,
-  description,
-  date,
-}) => {
+const NotificationCard: FC<Props> = ({ icon, title, description, date }) => {
   return (
     <ReStyleBox
       flex={1}

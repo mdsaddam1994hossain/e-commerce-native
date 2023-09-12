@@ -1,29 +1,55 @@
-import { createBox, createText } from "@shopify/restyle";
 import React, { useState } from "react";
-import { ScrollView, TextInput, TouchableOpacity } from "react-native";
+import { Image, ScrollView, TextInput } from "react-native";
 import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
 import LogoIcon from "../../src/components/LogoIcon";
-import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { ReStyleTheme } from "../theme/theme";
 import { ApplicationScreenProps } from "../types/navigation";
 import PrimaryButton from "../../src/components/button/PrimaryButton";
 import { space } from "../../src/theme/spacing";
+import { palette } from "../../src/theme/palette";
+import { ReStyleBox } from "../../src/components/ReStyleBox/ReStyleBox";
+import { ReStyleText } from "../../src/components/ReStyleText/ReStyleText";
 
-const Box = createBox<ReStyleTheme>();
-const Text = createText<ReStyleTheme>();
+const userLogo = require("../../assets/User.png");
+const emailLogo = require("../../assets/Message.png");
+const passwordLogo = require("../../assets/lock.png");
 
-const { sm } = space;
+const { s, sm } = space;
+const { light, blue, white } = palette;
 
 const SignUpScreen = ({ navigation }: ApplicationScreenProps) => {
+  const [isNameFocused, setIsNameFocused] = useState(false);
   const [isEmailFocused, setIsEmailFocused] = useState(false);
+  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+  const [isRePasswordFocused, setIsRePasswordFocused] = useState(false);
 
+  const handleFocusName = () => {
+    setIsNameFocused(true);
+  };
+
+  const handleBlurName = () => {
+    setIsNameFocused(false);
+  };
   const handleFocusEmail = () => {
     setIsEmailFocused(true);
   };
 
   const handleBlurEmail = () => {
     setIsEmailFocused(false);
+  };
+  const handleFocusPassword = () => {
+    setIsPasswordFocused(true);
+  };
+
+  const handleBlurPassword = () => {
+    setIsPasswordFocused(false);
+  };
+  const handleFocusAgainPassword = () => {
+    setIsRePasswordFocused(true);
+  };
+
+  const handleBlurAgainPassword = () => {
+    setIsRePasswordFocused(false);
   };
   const onSignin = () => {
     console.log("onSignin button click");
@@ -34,44 +60,33 @@ const SignUpScreen = ({ navigation }: ApplicationScreenProps) => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <ScrollView style={styles.siteSpace}>
-        <Box flex={1} paddingTop="xxxl">
+        <ReStyleBox flex={1} paddingTop="xxxl">
           <LogoIcon />
 
-          <Text
-            color="dark"
-            fontFamily="Poppins-Bold"
-            fontSize={16}
-            textAlign="center"
-            paddingTop={"m"}
-          >
+          <ReStyleText variant={"heading4"} textAlign="center" paddingTop="m">
             Let's Get Started
-          </Text>
-          <Text
-            color="grey"
-            fontFamily="Poppins-Regular"
-            fontSize={12}
+          </ReStyleText>
+          <ReStyleText
+            variant={"bodyTextSmall"}
+            marginTop="xs"
             textAlign="center"
           >
             create an new account
-          </Text>
-          <Box marginTop="m">
+          </ReStyleText>
+          <ReStyleBox marginTop="m">
             <TextInput
               placeholder="Full Name"
-              style={[
-                styles.input,
-                isEmailFocused ? styles.focusedInput : null,
-              ]}
-              onFocus={handleFocusEmail}
-              onBlur={handleBlurEmail}
+              style={[styles.input, isNameFocused ? styles.focusedInput : null]}
+              onFocus={handleFocusName}
+              onBlur={handleBlurName}
             />
-            <Ionicons
-              style={styles.logoPosition}
-              name={"person"}
-              size={16}
-              color={"#9098B1"}
+
+            <Image
+              style={[styles.logoPosition, styles.uSize]}
+              source={userLogo}
             />
-          </Box>
-          <Box>
+          </ReStyleBox>
+          <ReStyleBox>
             <TextInput
               placeholder="Your Email"
               style={[
@@ -81,71 +96,56 @@ const SignUpScreen = ({ navigation }: ApplicationScreenProps) => {
               onFocus={handleFocusEmail}
               onBlur={handleBlurEmail}
             />
-            <Ionicons
-              style={styles.logoPosition}
-              name={"person"}
-              size={16}
-              color={"#9098B1"}
+            <Image
+              style={[styles.logoPosition, styles.uSize]}
+              source={emailLogo}
             />
-          </Box>
-          <Box>
+          </ReStyleBox>
+          <ReStyleBox>
             <TextInput
               placeholder="Password"
               secureTextEntry={true}
               style={[
                 styles.input,
-                isEmailFocused ? styles.focusedInput : null,
+                isPasswordFocused ? styles.focusedInput : null,
               ]}
-              onFocus={handleFocusEmail}
-              onBlur={handleBlurEmail}
+              onFocus={handleFocusPassword}
+              onBlur={handleBlurPassword}
             />
-            <Ionicons
-              style={styles.logoPosition}
-              name={"person"}
-              size={16}
-              color={"#9098B1"}
+            <Image
+              style={[styles.logoPosition, styles.lSize]}
+              source={passwordLogo}
             />
-          </Box>
-          <Box>
+          </ReStyleBox>
+          <ReStyleBox>
             <TextInput
               placeholder="Password Again"
               secureTextEntry={true}
               style={[
                 styles.input,
-                isEmailFocused ? styles.focusedInput : null,
+                isRePasswordFocused ? styles.focusedInput : null,
               ]}
-              onFocus={handleFocusEmail}
-              onBlur={handleBlurEmail}
+              onFocus={handleFocusAgainPassword}
+              onBlur={handleBlurAgainPassword}
             />
-            <Ionicons
-              style={styles.logoPosition}
-              name={"person"}
-              size={16}
-              color={"#9098B1"}
+            <Image
+              style={[styles.logoPosition, styles.lSize]}
+              source={passwordLogo}
             />
-          </Box>
+          </ReStyleBox>
 
-          <TouchableOpacity onPress={onSignin} style={styles.signUpButton}>
-            <Text
-              color="white"
-              fontSize={14}
-              textAlign="center"
-              fontFamily="Poppins-Bold"
-            >
-              {" "}
-              Sign Up
-            </Text>
-          </TouchableOpacity>
+          <ReStyleBox marginVertical="sm">
+            <PrimaryButton
+              text={"Sign Up"}
+              buttonVariant={"primary"}
+              textVariant={"buttonText"}
+              onPress={onSignin}
+            />
+          </ReStyleBox>
 
-          <Text
-            marginTop="s"
-            color="grey"
-            textAlign="center"
-            fontFamily="Poppins-Regular"
-            fontSize={12}
-          >
+          <ReStyleText marginTop="s" textAlign="center" variant="bodyTextSmall">
             have a account?
-            <Text
+            <ReStyleText
               onPress={() => navigation.navigate("Login")}
               fontSize={12}
               color="blue"
@@ -153,15 +153,9 @@ const SignUpScreen = ({ navigation }: ApplicationScreenProps) => {
             >
               {" "}
               Sign In
-            </Text>
-          </Text>
-          <PrimaryButton
-            text={"Test Primary"}
-            buttonVariant={"primary"}
-            textVariant={"textHeader"}
-            onPress={onSignin}
-          />
-        </Box>
+            </ReStyleText>
+          </ReStyleText>
+        </ReStyleBox>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -170,45 +164,37 @@ const SignUpScreen = ({ navigation }: ApplicationScreenProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: white,
     height: "100%",
   },
 
   input: {
     height: 48,
-    marginVertical: 6,
-    width: "100%",
+    marginVertical: s,
     borderWidth: 1,
-    borderColor: "#EBF0FF",
+    borderColor: light,
     paddingHorizontal: 10,
-    paddingLeft: 35,
+    paddingLeft: 40,
     borderRadius: 5,
     fontFamily: "Poppins-Regular",
-  },
-  signUpButton: {
-    height: 57,
-    marginVertical: 12,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#40BFFF",
-    padding: 10,
-    elevation: 20,
-    shadowOpacity: 0.4,
-    borderRadius: 5,
-    shadowColor: "#40BFFF",
-    shadowOffset: { width: 0, height: 10 },
-    shadowRadius: 30,
   },
 
   logoPosition: {
     position: "absolute",
-    left: 16,
+    left: sm,
     top: 20,
+  },
+  uSize: {
+    height: 20,
+    width: 20,
+  },
+  lSize: {
+    height: 18,
+    width: 18,
   },
 
   focusedInput: {
-    borderColor: "#40BFFF", // Border color when focused
+    borderColor: blue, // Border color when focused
   },
   siteSpace: {
     paddingHorizontal: sm,

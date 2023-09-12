@@ -19,10 +19,11 @@ const theme = createTheme<TThimeProps>({
   },
   textInputVariants: {
     defaults: {
-      padding: "auto",
-      fontSize: 16,
-      backgroundColor: "white",
-      borderRadius: 8,
+      height: 48,
+      fontSize: 12,
+      borderRadius: 5,
+      borderWidth: 1,
+      fontFamily: "Poppins-Regular",
     },
   },
   textVariants: {
@@ -35,6 +36,31 @@ const theme = createTheme<TThimeProps>({
       color: "dark",
       fontFamily: "Poppins-Bold",
     },
+    headingBlue: {
+      fontSize: 14,
+      color: "blue",
+      fontFamily: "Poppins-Bold",
+    },
+    heading3Grey: {
+      fontSize: 14,
+      color: "grey",
+      fontFamily: "Poppins-Bold",
+    },
+    heading4: {
+      fontSize: 16,
+      color: "dark",
+      fontFamily: "Poppins-Bold",
+    },
+    heading6: {
+      fontSize: 12,
+      color: "dark",
+      fontFamily: "Poppins-Bold",
+    },
+    heading6Primary: {
+      fontSize: 12,
+      color: "blue",
+      fontFamily: "Poppins-Bold",
+    },
     subHeading: {
       fontSize: 18,
       color: "primary",
@@ -44,33 +70,14 @@ const theme = createTheme<TThimeProps>({
       color: "white",
       fontFamily: "Poppins-Bold",
     },
-    textHeader: {
-      fontSize: 16,
-      color: "white",
-    },
-    textHeaderBold: {
-      fontSize: 16,
-      color: "white",
-      fontWeight: "bold",
-    },
-    bodyText: {
-      fontSize: 14,
-      color: "black",
-    },
-    bodyTextBold: {
-      fontSize: 16,
-      fontWeight: "bold",
-    },
-    bodyTextWhite: {
-      fontSize: 16,
-      color: "primary",
-    },
-    bodyTextRegular: {
-      fontSize: 16,
-      color: "primary",
-    },
     bodyTextSmall: {
       fontSize: 12,
+      color: "grey",
+      fontFamily: "Poppins-Regular",
+      lineHeight: 20,
+    },
+    bodyTextNormal: {
+      fontSize: 10,
       color: "grey",
       fontFamily: "Poppins-Regular",
     },
@@ -78,52 +85,6 @@ const theme = createTheme<TThimeProps>({
       fontSize: 10,
       color: "dark",
       fontFamily: "Poppins-Regular",
-    },
-    caption: {
-      fontSize: 12,
-      color: "primary",
-    },
-    hyperLinkOrange: {
-      color: "primary",
-      fontSize: 16,
-    },
-    hyperLinkBlue: {
-      color: "primary",
-      fontSize: 16,
-    },
-    sectionHeader: {
-      fontSize: 18,
-      color: "primary",
-      marginBottom: "lg",
-    },
-    navBarHeaderLight: {
-      fontSize: 20,
-      color: "white",
-    },
-    primaryButton: {
-      fontSize: 14,
-      paddingHorizontal: "lg",
-      elevation: 20,
-      borderRadius: 5,
-      shadowColor: "blue",
-      shadowOffset: { width: 0, height: 8 },
-      shadowRadius: 30,
-    },
-    defaultButton: {
-      fontSize: 16,
-      color: "limsPlusGrey",
-      textTransform: "capitalize",
-    },
-    smallPrimaryButton: {
-      fontSize: 12,
-      paddingHorizontal: "sm",
-      textTransform: "uppercase",
-      color: "white",
-    },
-    smallDefaultButton: {
-      fontSize: 12,
-      color: "limsPlusGrey",
-      textTransform: "uppercase",
     },
   },
   boxVariants: {
@@ -151,19 +112,23 @@ const theme = createTheme<TThimeProps>({
     },
     primary: {
       backgroundColor: "blue",
+      flex: 1,
+      shadowOpacity: 0.4,
+      elevation: 20,
+      borderRadius: 5,
+      shadowColor: "blue",
+      shadowOffset: { width: 0, height: 8 },
+      shadowRadius: 30,
     },
     secondary: {
       backgroundColor: "white",
-    },
-    listPrimary: {
-      height: 34,
-      paddingHorizontal: "sm",
-      backgroundColor: "limsPlusGrey",
-    },
-    listSecondary: {
-      height: 34,
-      paddingHorizontal: "sm",
-      backgroundColor: "white",
+      flex: 1,
+      shadowOpacity: 0.4,
+      elevation: 20,
+      borderRadius: 5,
+      shadowColor: "blue",
+      shadowOffset: { width: 0, height: 8 },
+      shadowRadius: 30,
     },
   },
   cardVariants: {

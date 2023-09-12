@@ -21,8 +21,8 @@ export type TThimeProps = {
   };
   textInputVariants: {
     customTextInput?: TextStyle;
-    defaults?: TextStyle;
-    padding?: string;
+    defaults?: TextStyle | any;
+    padding?: TextStyle | any;
     paddingVertical?: TextStyle;
     paddingHorizontal?: TextStyle;
     borderRadius?: TextStyle;
@@ -32,6 +32,11 @@ export type TThimeProps = {
     title?: TextStyle;
     defaults?: TextStyle;
     heading?: TextStyle;
+    headingBlue?: TextStyle;
+    heading3Grey?: TextStyle;
+    heading4?: TextStyle;
+    heading6?: TextStyle;
+    heading6Primary?: TextStyle;
     buttonText?: TextStyle;
     subHeading?: TextStyle;
     textHeader?: TextStyle;
@@ -40,19 +45,8 @@ export type TThimeProps = {
     bodyText?: TextStyle;
     bodyTextBold?: TextStyle;
     bodyTextSoSmall?: TextStyle;
-    bodyTextWhite?: TextStyle;
-    bodyTextRegular?: TextStyle;
     bodyTextSmall?: TextStyle;
-    bodyTextSmallWhite?: TextStyle;
-    caption?: TextStyle;
-    hyperLinkOrange?: TextStyle;
-    hyperLinkBlue?: TextStyle;
-    sectionHeader?: ISectionHeader;
-    navBarHeaderLight?: TextStyle;
-    primaryButton?: IButton;
-    defaultButton?: IButton;
-    smallPrimaryButton?: IButton;
-    smallDefaultButton?: IButton;
+    bodyTextNormal?: TextStyle;
   };
   boxVariants: IBoxVariants;
   buttonVariants: IButtonVariants;

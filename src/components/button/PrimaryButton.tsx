@@ -1,4 +1,4 @@
-import { createText, ResponsiveValue } from "@shopify/restyle";
+import { ResponsiveValue } from "@shopify/restyle";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { ReStyleTheme, TTextVariants } from "../../theme/theme";
@@ -13,7 +13,7 @@ type TPrimaryButtonProps = {
   isChecked?: boolean;
   buttonVariant?:
     | ResponsiveValue<
-        "primary" | "secondary" | "listPrimary" | "listSecondary",
+        "primary" | "secondary",
         {
           phone: number;
           tablet: number;

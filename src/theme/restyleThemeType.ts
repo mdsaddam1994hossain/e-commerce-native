@@ -52,19 +52,23 @@ export interface IButtonVariants {
   };
   primary: {
     backgroundColor: string;
+    shadowOpacity?: number;
+    elevation?: number;
+    flex?: number;
+    borderRadius?: number;
+    shadowColor?: string;
+    shadowOffset?: { width: number; height: number };
+    shadowRadius?: number;
   };
   secondary: {
     backgroundColor: string;
-  };
-  listPrimary: {
-    height: number;
-    paddingHorizontal: string;
-    backgroundColor: string;
-  };
-  listSecondary: {
-    height: 34;
-    paddingHorizontal: string;
-    backgroundColor: string;
+    shadowOpacity?: number;
+    elevation?: number;
+    flex?: number;
+    borderRadius?: number;
+    shadowColor?: string;
+    shadowOffset?: { width: number; height: number };
+    shadowRadius?: number;
   };
 }
 

@@ -1,10 +1,36 @@
-import React, { FC } from "react";
-import { TextInput, TextInputProps } from "react-native";
+import React from "react";
+import { ReStyleBox } from "../ReStyleBox/ReStyleBox";
+import { ReStyleText } from "../ReStyleText/ReStyleText";
+import { ReStyleTextInput } from "../ReStyleTextInput/ReStyleTextInput";
 
-interface CustomTextInputProps extends TextInputProps {}
-
-const CustomTextInput: FC<CustomTextInputProps> = ({ ...rest }) => {
-  return <TextInput {...rest} />;
+type TInpuText = {
+  placeholder: string;
+  onChangeText?: any;
+  onFocus: any;
+  onBlur: any;
+  value?: any;
+  error?: any;
+};
+const InpuText: React.FC<TInpuText> = ({
+  placeholder,
+  onChangeText,
+  onBlur,
+  onFocus,
+  value,
+  error,
+}) => {
+  return (
+    <ReStyleBox height={85} paddingVertical={"sm"}>
+      <ReStyleTextInput
+        onChangeText={onChangeText}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        value={value}
+        placeholder={placeholder}
+      />
+      {error ? <ReStyleText marginVertical="sm">{error}</ReStyleText> : null}
+    </ReStyleBox>
+  );
 };
 
-export default CustomTextInput;
+export default InpuText;

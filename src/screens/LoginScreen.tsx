@@ -1,41 +1,40 @@
-import { createBox, createText } from "@shopify/restyle";
 import React, { useState } from "react";
-import {
-  TouchableOpacity,
-  StyleSheet,
-  TextInput,
-  Platform,
-} from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import { StyleSheet, TextInput, Platform, Image } from "react-native";
 import LogoIcon from "./../components/LogoIcon";
 
-import { ReStyleTheme } from "../theme/theme";
 import { ApplicationScreenProps } from "../types/navigation";
 import SocialButton from "../../src/components/button/SocialButton";
 import { KeyboardAvoidingView } from "react-native";
 import { ScrollView } from "react-native";
-import NotificationCard from "../../src/components/Notification/NotificationCard";
 import { space } from "../../src/theme/spacing";
+
 import PrimaryButton from "../../src/components/button/PrimaryButton";
+import { palette } from "../../src/theme/palette";
 
-const Box = createBox<ReStyleTheme>();
-const Text = createText<ReStyleTheme>();
+const emailLogo = require("../../assets/Message.png");
+const passwordLogo = require("../../assets/lock.png");
+const googleLogo = require("../../assets/google.png");
+const facebookLogo = require("../../assets/facebook.png");
+import { ReStyleBox } from "../../src/components/ReStyleBox/ReStyleBox";
+import { ReStyleText } from "../../src/components/ReStyleText/ReStyleText";
 
-const { sm } = space;
-
-const onSignin = () => {
-  console.log("onSignin button click");
-};
-const onSigninGoogle = () => {
-  console.log("onSigninGoogle button click");
-};
-const onSinginFacebook = () => {
-  console.log("onSinginFacebook button click");
-};
+const { s, sm } = space;
+const { light, blue, white } = palette;
 
 const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+
+  const onSignin = () => {
+    console.log("onSignin button click");
+    navigation.navigate("Home");
+  };
+  const onSigninGoogle = () => {
+    console.log("onSigninGoogle button click");
+  };
+  const onSinginFacebook = () => {
+    console.log("onSinginFacebook button click");
+  };
 
   const handleFocusEmail = () => {
     setIsEmailFocused(true);
@@ -57,7 +56,7 @@ const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <ScrollView style={styles.siteSpace}>
-        <Box flex={1} paddingTop="xxxl">
+        <ReStyleBox flex={1} paddingTop="xxxl">
           {/* <NotificationCard
            
             title="The Best Title"
@@ -65,25 +64,15 @@ const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
             date="April 30,2023 1:01 PM"
           /> */}
           <LogoIcon />
-          <Box paddingTop="m">
-            <Text
-              color="dark"
-              fontFamily="Poppins-Bold"
-              fontSize={16}
-              textAlign="center"
-            >
+          <ReStyleBox paddingTop="m">
+            <ReStyleText variant={"heading4"} textAlign="center">
               Welcome to Lafyuu
-            </Text>
-            <Text
-              color="grey"
-              fontFamily="Poppins-Regular"
-              fontSize={12}
-              textAlign="center"
-            >
+            </ReStyleText>
+            <ReStyleText variant={"bodyTextSmall"} textAlign="center">
               Sign in to continue
-            </Text>
+            </ReStyleText>
 
-            <Box marginTop="m">
+            <ReStyleBox marginTop="m">
               <TextInput
                 placeholder="Your Email"
                 style={[
@@ -93,14 +82,12 @@ const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
                 onFocus={handleFocusEmail}
                 onBlur={handleBlurEmail}
               />
-              <Ionicons
-                style={styles.logoPosition}
-                name={"person"}
-                size={16}
-                color={"#9098B1"}
+              <Image
+                style={[styles.logoPosition, styles.eSize]}
+                source={emailLogo}
               />
-            </Box>
-            <Box position="relative">
+            </ReStyleBox>
+            <ReStyleBox position="relative">
               <TextInput
                 placeholder="Password"
                 secureTextEntry={true}
@@ -111,68 +98,73 @@ const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
                   isPasswordFocused ? styles.focusedInput : null,
                 ]}
               />
-              <Ionicons
-                style={styles.logoPosition}
-                name={"person"}
-                size={16}
-                color={"#9098B1"}
+              <Image
+                style={[styles.logoPosition, styles.lSize]}
+                source={passwordLogo}
               />
-            </Box>
+            </ReStyleBox>
 
-            <PrimaryButton
-              text={"Sign In"}
-              buttonVariant={"primary"}
-              textVariant={"textHeader"}
-              onPress={onSignin}
-            />
+            <ReStyleBox marginVertical="sm">
+              <PrimaryButton
+                text={"Sign In"}
+                buttonVariant={"primary"}
+                textVariant={"textHeader"}
+                onPress={onSignin}
+              />
+            </ReStyleBox>
 
-            <Box
+            <ReStyleBox
               flexDirection="row"
               justifyContent="center"
               alignItems="center"
               gap="s"
             >
-              <Box flex={4} backgroundColor="light" height={1}></Box>
-              <Box flex={2}>
-                <Text
+              <ReStyleBox
+                flex={4}
+                backgroundColor="light"
+                height={1}
+              ></ReStyleBox>
+              <ReStyleBox flex={2}>
+                <ReStyleText
                   textAlign="center"
                   fontSize={14}
                   fontFamily="Poppins-Bold"
                   color="grey"
                 >
                   OR
-                </Text>
-              </Box>
-              <Box height={1} backgroundColor="light" flex={4}></Box>
-            </Box>
-            <Box position="relative">
+                </ReStyleText>
+              </ReStyleBox>
+              <ReStyleBox
+                height={1}
+                backgroundColor="light"
+                flex={4}
+              ></ReStyleBox>
+            </ReStyleBox>
+            <ReStyleBox position="relative">
               <SocialButton
                 style={styles.socialButton}
                 title="Login with Google"
                 onPress={onSigninGoogle}
               />
-              <Ionicons
-                style={styles.buttonIcon}
-                name={"person"}
-                size={20}
-                color={"#9098B1"}
+
+              <Image
+                style={[styles.buttonIcon, styles.gSize]}
+                source={googleLogo}
               />
-            </Box>
-            <Box position="relative">
+            </ReStyleBox>
+            <ReStyleBox position="relative">
               <SocialButton
                 style={styles.socialButton}
                 title=" Login with facebook"
                 onPress={onSinginFacebook}
               />
-              <Ionicons
-                style={styles.buttonIcon}
-                name={"person"}
-                size={20}
-                color={"#9098B1"}
+              <Image
+                style={[styles.buttonIcon, styles.fSize]}
+                source={facebookLogo}
               />
-            </Box>
+            </ReStyleBox>
 
-            <Text
+            <ReStyleText
               marginTop="s"
               color="blue"
               textAlign="center"
@@ -180,9 +172,9 @@ const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
               fontSize={12}
             >
               Forgot Password?
-            </Text>
+            </ReStyleText>
 
-            <Text
+            <ReStyleText
               marginTop="s"
               color="grey"
               textAlign="center"
@@ -190,17 +182,18 @@ const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
               fontSize={12}
             >
               Don't have a account?
-              <Text
+              <ReStyleText
                 onPress={() => navigation.navigate("SignUp")}
                 fontSize={12}
                 color="blue"
                 fontFamily="Poppins-Bold"
               >
+                {" "}
                 Register
-              </Text>
-            </Text>
-          </Box>
-        </Box>
+              </ReStyleText>
+            </ReStyleText>
+          </ReStyleBox>
+        </ReStyleBox>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -209,57 +202,60 @@ const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: white,
   },
 
   input: {
     height: 48,
-    marginVertical: 6,
     borderWidth: 1,
-    borderColor: "#EBF0FF",
+    borderColor: light,
     paddingHorizontal: 10,
-    paddingLeft: 35,
+    paddingLeft: 40,
     borderRadius: 5,
+    marginVertical: s,
     fontFamily: "Poppins-Regular",
   },
-  // loginButton: {
-  //   height: 57,
-  //   marginVertical: 12,
-  //   display: "flex",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   backgroundColor: "#40BFFF",
-  //   shadowOpacity: 0.4,
-  //   elevation: 20,
-  //   borderRadius: 5,
-  //   shadowColor: "#40BFFF",
-  //   shadowOffset: { width: 0, height: 8 },
-  //   shadowRadius: 30,
-  //   width: "100%",
-  // },
+
   socialButton: {
     height: 57,
-    marginVertical: 6,
+    marginVertical: s,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     padding: 10,
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: "#EBF0FF",
+    borderColor: light,
   },
   logoPosition: {
     position: "absolute",
-    left: 16,
+    left: sm,
     top: 20,
+  },
+  eSize: {
+    height: 22,
+    width: 22,
+  },
+  lSize: {
+    height: 20,
+    width: 20,
+  },
+  gSize: {
+    height: 16,
+    width: 16,
+  },
+  fSize: {
+    height: 20,
+    width: 11,
+    marginLeft: 5,
   },
   buttonIcon: {
     position: "absolute",
     left: 16,
-    top: 25,
+    top: 26,
   },
   focusedInput: {
-    borderColor: "#40BFFF", // Border color when focused
+    borderColor: blue, // Border color when focused
   },
   siteSpace: {
     paddingHorizontal: sm,
