@@ -41,9 +41,12 @@ const theme = createTheme<TThimeProps>({
       color: "blue",
       fontFamily: "Poppins-Bold",
     },
-    heading3Grey: {
+    heading3: {
+      fontSize: 20,
+      fontFamily: "Poppins-Bold",
+    },
+    heading5: {
       fontSize: 14,
-      color: "grey",
       fontFamily: "Poppins-Bold",
     },
     heading4: {
@@ -72,7 +75,6 @@ const theme = createTheme<TThimeProps>({
     },
     bodyTextSmall: {
       fontSize: 12,
-      color: "grey",
       fontFamily: "Poppins-Regular",
       lineHeight: 20,
     },
@@ -80,6 +82,11 @@ const theme = createTheme<TThimeProps>({
       fontSize: 10,
       color: "grey",
       fontFamily: "Poppins-Regular",
+    },
+    bodyTextBold: {
+      fontSize: 10,
+      color: "grey",
+      fontFamily: "Poppins-Bold",
     },
     bodyTextSoSmall: {
       fontSize: 10,

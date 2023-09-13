@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { Image } from "react-native";
+import { ImageSourcePropType, TouchableOpacity } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import { ReStyleBox } from "../ReStyleBox/ReStyleBox";
 import { ReStyleText } from "../ReStyleText/ReStyleText";
 
@@ -8,7 +9,8 @@ type Props = {
   discountedPrice: number;
   price: number;
   discount: number;
-  index?: number;
+  navigation: any;
+  src: ImageSourcePropType;
 };
 
 const ProductCard: FC<Props> = ({
@@ -16,8 +18,12 @@ const ProductCard: FC<Props> = ({
   discountedPrice,
   price,
   discount,
-  index,
+  src,
+  navigation,
 }) => {
+  const productDetails = () => {
+    navigation.navigate("ProductDetails");
+  };
   return (
     <ReStyleBox
       padding="sm"
@@ -34,7 +40,9 @@ const ProductCard: FC<Props> = ({
         justifyContent="center"
         alignItems="center"
       >
-        <Image source={require("../../../assets/shirt.png")} />
+        <TouchableOpacity onPress={productDetails}>
+          <Image source={src} style={styles.pimage} />
+        </TouchableOpacity>
       </ReStyleBox>
       <ReStyleText marginTop="sm" variant="heading6">
         {title}
@@ -56,5 +64,13 @@ const ProductCard: FC<Props> = ({
     </ReStyleBox>
   );
 };
+
+const styles = StyleSheet.create({
+  pimage: {
+    height: 109,
+    width: 120,
+    borderRadius: 8,
+  },
+});
 
 export default ProductCard;

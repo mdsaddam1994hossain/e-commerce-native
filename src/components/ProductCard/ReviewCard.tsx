@@ -28,7 +28,10 @@ const ReviewCard: FC<Props> = ({
         </ReStyleBox>
         <ReStyleBox flex={8}>
           <ReStyleText variant="heading">{name}</ReStyleText>
-          <ReStyleText>{rating}</ReStyleText>
+          <Image
+            source={require("../../../assets/rating.png")}
+            style={styles.rating}
+          />
         </ReStyleBox>
       </ReStyleBox>
       <ReStyleText marginTop="sm" variant="bodyTextSmall">
@@ -62,6 +65,10 @@ const styles = StyleSheet.create({
     height: 72,
     width: 72,
     borderRadius: 8,
+  },
+  rating: {
+    height: 16,
+    width: 96,
   },
 });
 

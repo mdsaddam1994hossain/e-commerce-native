@@ -4,65 +4,22 @@ import { ReStyleBox } from "../../src/components/ReStyleBox/ReStyleBox";
 
 import { ApplicationScreenProps } from "../types/navigation";
 import CategoryItem from "../../src/components/categoryItem/CategoryItem";
-import { FlatList } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import ProductCard from "../../src/components/ProductCard/ProductCard";
 import { ScrollView } from "react-native";
-import RecomendedBanner from "../../src/components/RecomendedBanner/RecomendedBanner";
+import RecomendedBanner from "../components/Banner/RecomendedBanner";
 import RecomendedProduct from "../../src/components/ProductCard/RecomendedProduct";
 import ReviewCard from "../../src/components/ProductCard/ReviewCard";
-
-const shirt = require("../../assets/shirt.png");
-const dress = require("../../assets/dress.png");
-
-const categorylData = [
-  {
-    id: "1",
-    title: "Man Shirt",
-    img: shirt,
-  },
-  {
-    id: "2",
-    title: "Dress",
-    img: dress,
-  },
-  { id: "3", title: "Man Work Equipment", img: shirt },
-  { id: "4", title: "Woman Bag", img: dress },
-];
-const productData = [
-  {
-    id: "1",
-    title: "FS - Nike Air Max 270 React..",
-    discountedPrice: 29943,
-    price: 53433,
-    discount: 24,
-  },
-  {
-    id: "2",
-    title: "FS - QUILTED MAXI CROS",
-    discountedPrice: 28543,
-    price: 56254,
-    discount: 32,
-  },
-  {
-    id: "3",
-    title: "XX - MAXI Air Max Cross",
-    discountedPrice: 29943,
-    price: 53433,
-    discount: 20,
-  },
-  {
-    id: "4",
-    title: "Nike - Nike Air Max 270 ..",
-    discountedPrice: 589674,
-    price: 58666,
-    discount: 35,
-  },
-];
+import DiscountBanner from "../../src/components/Banner/DiscountBanner";
+import { categorylData, megaData, productData, recoData } from "../Data/Data";
 
 const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
   return (
     <ScrollView>
       <ReStyleBox flex={1} backgroundColor="white" paddingTop="lg">
+        <ReStyleBox margin="sm">
+          <DiscountBanner title="Super Flash Sale" discount={50} />
+        </ReStyleBox>
         <ReStyleBox
           paddingHorizontal="sm"
           flexDirection="row"
@@ -106,7 +63,8 @@ const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
                 discountedPrice={item.discountedPrice}
                 price={item.price}
                 discount={item.discount}
-                index={index}
+                src={item.imgSrc}
+                navigation={navigation}
               />
             )}
           />
@@ -122,7 +80,7 @@ const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
         </ReStyleBox>
         <ReStyleBox marginLeft="sm">
           <FlatList
-            data={productData}
+            data={megaData}
             horizontal
             showsHorizontalScrollIndicator={false}
             keyExtractor={(item) => item.id}
@@ -132,7 +90,8 @@ const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
                 discountedPrice={item.discountedPrice}
                 price={item.price}
                 discount={item.discount}
-                index={index}
+                src={item.imgSrc}
+                navigation={navigation}
               />
             )}
           />
@@ -142,7 +101,7 @@ const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
         </ReStyleBox>
         <ReStyleBox marginHorizontal="sm" marginTop="sm">
           <FlatList
-            data={productData}
+            data={recoData}
             numColumns={2}
             showsHorizontalScrollIndicator={false}
             keyExtractor={(item) => item.id}
@@ -153,21 +112,17 @@ const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
                 price={item.price}
                 discount={item.discount}
                 index={index}
+                src={item.imgSrc}
+                isFav={false}
               />
             )}
-          />
-        </ReStyleBox>
-
-        <ReStyleBox paddingHorizontal="sm">
-          <ReviewCard
-            name="James Lawson"
-            rating={4}
-            description="air max are always very comfortable fit, clean and just perfecct in every way. just the box was too small and scrunched the "
           />
         </ReStyleBox>
       </ReStyleBox>
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({});
 
 export default HomeScreen;

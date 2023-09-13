@@ -1,17 +1,14 @@
 import { FC } from "react";
-import { Image } from "react-native";
+import { Image, ImageSourcePropType } from "react-native";
 import { ReStyleBox } from "../ReStyleBox/ReStyleBox";
 import { ReStyleText } from "../ReStyleText/ReStyleText";
 
-const dress = require("../../../assets/dress.png");
-
 type Props = {
   title: string;
-  src: any;
+  src: ImageSourcePropType;
 };
 
 const CategoryItem: FC<Props> = ({ title, src }) => {
-  console.log(src, "src..");
   return (
     <ReStyleBox
       gap="s"

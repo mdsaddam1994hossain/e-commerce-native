@@ -1,4 +1,4 @@
-import { ImageBackground, StyleSheet } from "react-native";
+import { Image, ImageBackground, StyleSheet } from "react-native";
 import { ReStyleBox } from "../ReStyleBox/ReStyleBox";
 import { ReStyleText } from "../ReStyleText/ReStyleText";
 
@@ -16,6 +16,7 @@ const RecomendedBanner = () => {
         <ReStyleText fontFamily={"Poppins-Bold"} fontSize={24} color="white">
           Product
         </ReStyleText>
+
         <ReStyleText
           marginTop="m"
           fontFamily={"Poppins-Regular"}

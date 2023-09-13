@@ -3,8 +3,11 @@ import * as React from "react";
 import HomeScreen from "./screens/HomeScreen";
 
 import LoginScreen from "./screens/LoginScreen";
+import ProductDetailsScreen from "./screens/ProductDetails";
 import ProfileScreen from "./screens/ProfileScreen";
+import ReviewScreen from "./screens/ReviewScreen";
 import SignUpScreen from "./screens/SignUpScreen";
+import WriteReviewScreen from "./screens/WriteReviewScreen";
 import { ApplicationStackParamList } from "./types/navigation";
 
 const Stack = createNativeStackNavigator<ApplicationStackParamList>();
@@ -23,6 +26,9 @@ function StackNavigation() {
       <Stack.Screen name="SignUp" component={SignUpScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
+      <Stack.Screen name="Review" component={ReviewScreen} />
+      <Stack.Screen name="WriteReview" component={WriteReviewScreen} />
     </Stack.Navigator>
   );
 }

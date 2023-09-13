@@ -6,6 +6,9 @@ export type MainParamsList = {
   Profile: undefined;
   SignUp: undefined;
   Home: undefined;
+  ProductDetails: undefined;
+  Review: undefined;
+  WriteReview: undefined;
 };
 
 export type ApplicationStackParamList = {
@@ -13,6 +16,9 @@ export type ApplicationStackParamList = {
   Profile: NavigatorScreenParams<MainParamsList>;
   SignUp: NavigatorScreenParams<MainParamsList>;
   Home: NavigatorScreenParams<MainParamsList>;
+  ProductDetails: NavigatorScreenParams<MainParamsList>;
+  Review: NavigatorScreenParams<MainParamsList>;
+  WriteReview: NavigatorScreenParams<MainParamsList>;
 };
 
 export type ApplicationScreenProps =

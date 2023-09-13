@@ -11,7 +11,7 @@ type Props = {
 const SocialButton: FC<Props> = ({ onPress, style, title }) => {
   return (
     <TouchableOpacity onPress={onPress} style={style}>
-      <ReStyleText variant="heading3Grey" textAlign="center">
+      <ReStyleText variant="heading5" color="grey" textAlign="center">
         {title}
       </ReStyleText>
     </TouchableOpacity>
