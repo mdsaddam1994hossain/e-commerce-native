@@ -27,7 +27,7 @@ const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
 
   const onSignin = () => {
     console.log("onSignin button click");
-    navigation.navigate("Home");
+    navigation.navigate("Tabs");
   };
   const onSigninGoogle = () => {
     console.log("onSigninGoogle button click");

@@ -38,7 +38,11 @@ const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
             showsHorizontalScrollIndicator={false}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
-              <CategoryItem title={item.title} src={item.img} />
+              <CategoryItem
+                title={item.title}
+                src={item.img}
+                isCatagory={true}
+              />
             )}
           />
         </ReStyleBox>
@@ -97,7 +101,11 @@ const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
           />
         </ReStyleBox>
         <ReStyleBox paddingHorizontal="sm" marginTop="sm" borderRadius={5}>
-          <RecomendedBanner />
+          <RecomendedBanner
+            title="Recomended"
+            subTitle="Product"
+            description="We recommend the best for you"
+          />
         </ReStyleBox>
         <ReStyleBox marginHorizontal="sm" marginTop="sm">
           <FlatList

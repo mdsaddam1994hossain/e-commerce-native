@@ -6,16 +6,18 @@ import { ReStyleText } from "../ReStyleText/ReStyleText";
 type Props = {
   title: string;
   src: ImageSourcePropType;
+  isCatagory: boolean;
 };
 
-const CategoryItem: FC<Props> = ({ title, src }) => {
+const CategoryItem: FC<Props> = ({ title, src, isCatagory }) => {
   return (
     <ReStyleBox
       gap="s"
       flexWrap="wrap"
       alignItems="center"
       width={70}
-      marginRight="sm"
+      marginRight={isCatagory ? "sm" : "m"}
+      marginVertical="s"
     >
       <ReStyleBox
         height={70}
@@ -26,9 +28,15 @@ const CategoryItem: FC<Props> = ({ title, src }) => {
         justifyContent="center"
         alignItems="center"
       >
-        <Image source={src} style={{ width: 24, height: 24 }} />
+        <Image
+          source={src}
+          style={{ width: 24, height: 24 }}
+          resizeMode="contain"
+        />
       </ReStyleBox>
-      <ReStyleText variant="bodyTextNormal">{title}</ReStyleText>
+      <ReStyleText textAlign={"center"} variant="bodyTextNormal">
+        {title}
+      </ReStyleText>
     </ReStyleBox>
   );
 };

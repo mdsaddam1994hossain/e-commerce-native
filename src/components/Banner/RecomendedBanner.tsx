@@ -1,8 +1,15 @@
+import { FC } from "react";
 import { Image, ImageBackground, StyleSheet } from "react-native";
 import { ReStyleBox } from "../ReStyleBox/ReStyleBox";
 import { ReStyleText } from "../ReStyleText/ReStyleText";
 
-const RecomendedBanner = () => {
+type Props = {
+  title: string;
+  subTitle?: string;
+  description: string;
+};
+
+const RecomendedBanner: FC<Props> = ({ title, description, subTitle }) => {
   return (
     <ReStyleBox>
       <ImageBackground
@@ -11,11 +18,13 @@ const RecomendedBanner = () => {
         imageStyle={{ borderRadius: 5 }}
       >
         <ReStyleText fontFamily={"Poppins-Bold"} fontSize={24} color="white">
-          Recomended
+          {title}
         </ReStyleText>
-        <ReStyleText fontFamily={"Poppins-Bold"} fontSize={24} color="white">
-          Product
-        </ReStyleText>
+        {subTitle && (
+          <ReStyleText fontFamily={"Poppins-Bold"} fontSize={24} color="white">
+            {subTitle}
+          </ReStyleText>
+        )}
 
         <ReStyleText
           marginTop="m"
@@ -23,7 +32,7 @@ const RecomendedBanner = () => {
           fontSize={12}
           color="white"
         >
-          We recommend the best for you
+          {description}
         </ReStyleText>
       </ImageBackground>
     </ReStyleBox>

@@ -4,6 +4,15 @@ const shirt = require("../../assets/shirt.png");
 const dress = require("../../assets/dress.png");
 const equipment = require("../../assets/equipment.png");
 const womanBag = require("../../assets/womanBag.png");
+const manShoes = require("../../assets/shoes.png");
+const manPants = require("../../assets/pants.png");
+const manTshirt = require("../../assets/tshirt.png");
+const manUnderPent = require("../../assets/underPent.png");
+const womanTShirt = require("../../assets/womanTShirt.png");
+const womanPants = require("../../assets/womanPants.png");
+const highHeels = require("../../assets/highHeels.png");
+const bikini = require("../../assets/bikini.png");
+const skirt = require("../../assets/skirt.png");
 const p1 = require("../../assets/p1.png");
 const p2 = require("../../assets/p2.png");
 const p3 = require("../../assets/p3.png");
@@ -24,7 +33,26 @@ export const categorylData: TCategoryData[] = [
   },
   { id: "3", title: "Man Work Equipment", img: equipment },
   { id: "4", title: "Woman Bag", img: womanBag },
-  { id: "5", title: "Man Bag", img: shirt },
+  { id: "5", title: "Man Shoes", img: manShoes },
+  { id: "6", title: "Man Pants", img: manPants },
+];
+
+export const MenFashonData: TCategoryData[] = [
+  { id: "1", title: "Man Shirt", img: shirt },
+  { id: "2", title: "Man Work Equipment", img: equipment },
+  { id: "3", title: "Man T-Shirt", img: manTshirt },
+  { id: "4", title: "Man Shoes", img: manShoes },
+  { id: "5", title: "Man Pants", img: manPants },
+  { id: "6", title: "Man Underwear", img: manUnderPent },
+];
+export const WomanFashonData: TCategoryData[] = [
+  { id: "1", title: "Dress", img: dress },
+  { id: "2", title: "Woman T-Shirt", img: womanTShirt },
+  { id: "3", title: "Woman Pants", img: womanPants },
+  { id: "4", title: "Skirt", img: skirt },
+  { id: "5", title: "Woman Bag", img: womanBag },
+  { id: "6", title: "High Heels", img: highHeels },
+  { id: "7", title: "Bikini", img: bikini },
 ];
 
 export const productData = [

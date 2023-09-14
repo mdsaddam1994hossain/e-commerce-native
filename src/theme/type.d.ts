@@ -45,8 +45,10 @@ export type TThimeProps = {
     header?: TextStyle;
     bodyText?: TextStyle;
     bodyTextBold?: TextStyle;
+    bodyTextBoldBlue?: TextStyle;
     bodyTextSoSmall?: TextStyle;
     bodyTextSmall?: TextStyle;
+    bodyTextSmallBold?: TextStyle;
     bodyTextNormal?: TextStyle;
   };
   boxVariants: IBoxVariants;
