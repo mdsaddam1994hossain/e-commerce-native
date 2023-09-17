@@ -1,7 +1,7 @@
 import { ApplicationScreenProps } from "../../src/types/navigation";
 import { ReStyleBox } from "../../src/components/ReStyleBox/ReStyleBox";
 import { ReStyleText } from "../../src/components/ReStyleText/ReStyleText";
-import { Image, StyleSheet } from "react-native";
+import { Image, Pressable, StyleSheet } from "react-native";
 import ProfileInfoCard from "../../src/components/Account/ProfileInfoCard";
 
 const profileImg = require("../../assets/ProfilePicture.png");
@@ -12,6 +12,9 @@ const phoneIcon = require("../../assets/phone.png");
 const passwordIcon = require("../../assets/password.png");
 
 const ProfileScreen = ({ navigation }: ApplicationScreenProps) => {
+  const editInfo = (name: string) => {
+    navigation.navigate(name);
+  };
   return (
     <ReStyleBox
       flex={1}
@@ -22,22 +25,26 @@ const ProfileScreen = ({ navigation }: ApplicationScreenProps) => {
       <ReStyleBox flexDirection="row" gap="sm" alignItems="center">
         <Image source={profileImg} style={styles.proImg} resizeMode="contain" />
         <ReStyleBox>
-          <ReStyleBox flexDirection="row" gap="s">
-            <ReStyleText variant="heading5" color="dark">
-              Maximus
-            </ReStyleText>
-            <ReStyleText variant="heading5" color="dark">
-              Gold
-            </ReStyleText>
-          </ReStyleBox>
+          <Pressable onPress={() => editInfo("Name")}>
+            <ReStyleBox flexDirection="row" gap="s">
+              <ReStyleText variant="heading5" color="dark">
+                Maximus
+              </ReStyleText>
+              <ReStyleText variant="heading5" color="dark">
+                Gold
+              </ReStyleText>
+            </ReStyleBox>
+          </Pressable>
           <ReStyleText variant="bodyTextSmall" color="grey">
             @derlaxy
           </ReStyleText>
         </ReStyleBox>
       </ReStyleBox>
-      <ReStyleBox marginTop="xl">
-        <ProfileInfoCard title="Gender" value="Male" icon={genderIcon} />
-      </ReStyleBox>
+      <Pressable onPress={() => editInfo("Gender")}>
+        <ReStyleBox marginTop="xl">
+          <ProfileInfoCard title="Gender" value="Male" icon={genderIcon} />
+        </ReStyleBox>
+      </Pressable>
       <ReStyleBox marginTop="lg">
         <ProfileInfoCard title="Birthday" value="12-12-2000" icon={dateIcon} />
       </ReStyleBox>

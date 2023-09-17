@@ -33,12 +33,7 @@ export const palette = {
   nature: "#00AC69",
   sea: "#001E60",
   sea2: "#123789",
-
   red2: "#EE3749",
-
-  lightBlue: "#0096FF",
-  blueIce: "#2689C0",
-
   transparent: "rgba(255, 255, 255, 0)",
   whiteOpacity95: "#ffffff95",
   gray: "#253746",

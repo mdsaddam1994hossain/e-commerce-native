@@ -14,6 +14,10 @@ export type MainParamsList = {
   "Your Cart": undefined;
   Offer: undefined;
   Tabs: undefined;
+  Name: undefined;
+  Gender: undefined;
+  Order: undefined;
+  Payment: undefined;
 };
 
 export type ApplicationStackParamList = {
@@ -29,6 +33,10 @@ export type ApplicationStackParamList = {
   "Your Cart": NavigatorScreenParams<MainParamsList>;
   Offer: NavigatorScreenParams<MainParamsList>;
   Tabs: NavigatorScreenParams<MainParamsList>;
+  Name: NavigatorScreenParams<MainParamsList>;
+  Gender: NavigatorScreenParams<MainParamsList>;
+  Order: NavigatorScreenParams<MainParamsList>;
+  Payment: NavigatorScreenParams<MainParamsList>;
 };
 
 export type ApplicationScreenProps =

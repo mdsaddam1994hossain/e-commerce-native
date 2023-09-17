@@ -23,7 +23,8 @@ const theme = createTheme<TThimeProps>({
       fontSize: 12,
       borderRadius: 5,
       borderWidth: 1,
-      fontFamily: "Poppins-Regular",
+      fontFamily: "Poppins-Bold",
+      paddingHorizontal: "sm",
     },
   },
   textVariants: {

@@ -1,4 +1,10 @@
-import { TCategoryData, TColorData, TSizeData, TRecomended } from "./data.t";
+import {
+  TCategoryData,
+  TColorData,
+  TSizeData,
+  TRecomended,
+  TAccountCard,
+} from "./data.t";
 
 const shirt = require("../../assets/shirt.png");
 const dress = require("../../assets/dress.png");
@@ -19,6 +25,13 @@ const p3 = require("../../assets/p3.png");
 const p4 = require("../../assets/p4.png");
 const p5 = require("../../assets/p5.png");
 const p6 = require("../../assets/p6.png");
+const cardIcon = require("../../assets/card.png");
+const paypal = require("../../assets/Paypal.png");
+const bank = require("../../assets/bank.png");
+
+const userIcon = require("../../assets/userActive.png");
+const orderIcon = require("../../assets/order.png");
+const addressIcon = require("../../assets/location.png");
 
 export const categorylData: TCategoryData[] = [
   {
@@ -173,4 +186,26 @@ export const colorData: TColorData[] = [
   { id: 4, value: "green" },
   { id: 5, value: "purpel" },
   { id: 6, value: "dark" },
+];
+
+export const paymentData: TAccountCard[] = [
+  {
+    id: 1,
+    icon: cardIcon,
+    title: "Credit Card Or Debit",
+    screen: "CreditCard",
+  },
+  { id: 1, icon: paypal, title: "Paypal", screen: "Paypal" },
+  { id: 1, icon: bank, title: "Bank Transfer", screen: "BankTransfer" },
+];
+export const accountData: TAccountCard[] = [
+  {
+    id: 1,
+    icon: userIcon,
+    title: "Profile",
+    screen: "Profile",
+  },
+  { id: 1, icon: orderIcon, title: "Order", screen: "Order" },
+  { id: 1, icon: addressIcon, title: "Address", screen: "Address" },
+  { id: 1, icon: cardIcon, title: "Payment", screen: "Payment" },
 ];

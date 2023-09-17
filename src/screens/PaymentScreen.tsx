@@ -1,24 +1,22 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import { paymentData } from "../../src/Data/Data";
 import AccoutInfoCard from "../../src/components/Account/AccountInfoCard";
-import { accountData } from "../../src/Data/Data";
 import { ReStyleBox } from "../components/ReStyleBox/ReStyleBox";
+import { ReStyleText } from "../components/ReStyleText/ReStyleText";
 
 import { ApplicationScreenProps } from "../types/navigation";
 
-const AccountScreen = ({ navigation }: ApplicationScreenProps) => {
+const PaymentScreen = ({ navigation }: ApplicationScreenProps) => {
   const accountDetails = (screen: string) => {
     navigation.navigate(screen);
   };
-
   return (
     <ReStyleBox
       flex={1}
       backgroundColor="white"
-      paddingTop="sm"
+      paddingTop="xl"
       paddingHorizontal="sm"
     >
-      {accountData.map((item, index) => {
+      {paymentData.map((item, index) => {
         return (
           <ReStyleBox key={index}>
             <AccoutInfoCard
@@ -34,4 +32,4 @@ const AccountScreen = ({ navigation }: ApplicationScreenProps) => {
   );
 };
 
-export default AccountScreen;
+export default PaymentScreen;

@@ -22,3 +22,9 @@ export interface TColorData {
   id: number;
   value: string;
 }
+export interface TAccountCard {
+  id: number;
+  icon: ImageSourcePropType;
+  title: string;
+  screen: string;
+}
