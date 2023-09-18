@@ -18,6 +18,11 @@ export type MainParamsList = {
   Gender: undefined;
   Order: undefined;
   Payment: undefined;
+  CreditCard: undefined;
+  AddCard: undefined;
+  CardPreview: undefined;
+  Address: undefined;
+  AddAddress: undefined;
 };
 
 export type ApplicationStackParamList = {
@@ -37,6 +42,11 @@ export type ApplicationStackParamList = {
   Gender: NavigatorScreenParams<MainParamsList>;
   Order: NavigatorScreenParams<MainParamsList>;
   Payment: NavigatorScreenParams<MainParamsList>;
+  CreditCard: NavigatorScreenParams<MainParamsList>;
+  AddCard: NavigatorScreenParams<MainParamsList>;
+  CardPreview: NavigatorScreenParams<MainParamsList>;
+  Address: NavigatorScreenParams<MainParamsList>;
+  AddAddress: NavigatorScreenParams<MainParamsList>;
 };
 
 export type ApplicationScreenProps =

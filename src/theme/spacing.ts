@@ -2,7 +2,7 @@ export const space = {
   none: 0,
   xs: 4,
   s: 8,
-  sm: 12,
+  sm: 14,
   m: 16,
   l: 24,
   lg: 30,

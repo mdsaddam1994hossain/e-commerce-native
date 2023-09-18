@@ -33,6 +33,7 @@ export type TThimeProps = {
     defaults?: TextStyle;
     heading?: TextStyle;
     headingBlue?: TextStyle;
+    heading2?: TextStyle;
     heading3?: TextStyle;
     heading5?: TextStyle;
     heading4?: TextStyle;
@@ -45,6 +46,7 @@ export type TThimeProps = {
     header?: TextStyle;
     bodyText?: TextStyle;
     bodyTextBold?: TextStyle;
+    bodyTextWhite?: TextStyle;
     bodyTextBoldBlue?: TextStyle;
     bodyTextSoSmall?: TextStyle;
     bodyTextSmall?: TextStyle;

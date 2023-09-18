@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {
   TextInput,
   StyleSheet,
@@ -12,7 +12,7 @@ import { ReStyleBox } from "../ReStyleBox/ReStyleBox";
 import { ReStyleText } from "../ReStyleText/ReStyleText";
 
 interface TextInputProps {
-  placeholder: string;
+  placeholder?: string;
   style?: StyleProp<ViewStyle>; // Style for the container View
   inputStyle?: StyleProp<TextStyle>; // Style for the TextInput
   onBlur?: () => void;
@@ -20,6 +20,9 @@ interface TextInputProps {
   onFocus?: () => void;
   errorMessage?: string | null;
   value?: string;
+  focus?: boolean;
+  editable?: boolean;
+  label?: string;
 }
 
 const { light, blue } = palette;
@@ -34,16 +37,40 @@ const MyTextInput: FC<TextInputProps> = ({
   onFocus,
   errorMessage,
   value,
+  focus,
+  editable,
+  label,
 }) => {
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    onFocus && onFocus();
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+    onBlur && onBlur();
+  };
   return (
     <ReStyleBox style={[styles.container, style]}>
+      {label && (
+        <ReStyleText variant="heading5" color="dark">
+          {label}
+        </ReStyleText>
+      )}
       <TextInput
-        style={[styles.input, inputStyle]}
+        style={[
+          styles.input,
+          isFocused ? styles.focusedInput : null,
+          inputStyle,
+        ]}
         placeholder={placeholder}
-        onBlur={onBlur}
+        onBlur={handleBlur}
         onChangeText={onChange}
-        onFocus={onFocus}
+        onFocus={handleFocus}
         value={value}
+        editable={editable}
       />
       {errorMessage && (
         <ReStyleText style={styles.error}>{errorMessage}</ReStyleText>
@@ -54,8 +81,6 @@ const MyTextInput: FC<TextInputProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    borderBottomWidth: 1,
-    borderColor: "gray",
     marginBottom: 10,
   },
   input: {
@@ -66,6 +91,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 5,
     marginVertical: s,
+    fontFamily: "Poppins-Regular",
+  },
+  focusedInput: {
+    borderColor: blue, // Border color when focused
   },
   error: {
     color: "red",

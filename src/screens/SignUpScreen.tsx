@@ -70,6 +70,7 @@ const SignUpScreen = ({ navigation }: ApplicationScreenProps) => {
             variant={"bodyTextSmall"}
             marginTop="xs"
             textAlign="center"
+            color="grey"
           >
             create an new account
           </ReStyleText>
@@ -143,7 +144,12 @@ const SignUpScreen = ({ navigation }: ApplicationScreenProps) => {
             />
           </ReStyleBox>
 
-          <ReStyleText marginTop="s" textAlign="center" variant="bodyTextSmall">
+          <ReStyleText
+            marginTop="s"
+            color="grey"
+            textAlign="center"
+            variant="bodyTextSmall"
+          >
             have a account?
             <ReStyleText
               onPress={() => navigation.navigate("Login")}

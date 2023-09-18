@@ -1,6 +1,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import BottomTab from "./bottomNavigation";
+import AddAddressScreen from "./screens/AddAddressScreen";
+import AddCardScreen from "./screens/AddCardScreen";
+import AddressScreen from "./screens/AddressScreen";
+import CardPreViewScreen from "./screens/CardPreviewScreen";
+import CreditCardSecreen from "./screens/CreditCardSecreen";
 import GenderEditScreen from "./screens/GenderEdit";
 
 import LoginScreen from "./screens/LoginScreen";
@@ -37,8 +42,13 @@ function StackNavigation() {
       <Stack.Screen name="Name" component={NameEditScreen} />
       <Stack.Screen name="Gender" component={GenderEditScreen} />
       <Stack.Screen name="Order" component={OrderScreen} />
-      <Stack.Screen name="Payment" component={PaymentScreen} />
       <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
+      <Stack.Screen name="Payment" component={PaymentScreen} />
+      <Stack.Screen name="CreditCard" component={CreditCardSecreen} />
+      <Stack.Screen name="AddCard" component={AddCardScreen} />
+      <Stack.Screen name="CardPreview" component={CardPreViewScreen} />
+      <Stack.Screen name="Address" component={AddressScreen} />
+      <Stack.Screen name="AddAddress" component={AddAddressScreen} />
       <Stack.Screen name="Review" component={ReviewScreen} />
       <Stack.Screen name="WriteReview" component={WriteReviewScreen} />
     </Stack.Navigator>

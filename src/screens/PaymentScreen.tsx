@@ -1,7 +1,6 @@
 import { paymentData } from "../../src/Data/Data";
 import AccoutInfoCard from "../../src/components/Account/AccountInfoCard";
 import { ReStyleBox } from "../components/ReStyleBox/ReStyleBox";
-import { ReStyleText } from "../components/ReStyleText/ReStyleText";
 
 import { ApplicationScreenProps } from "../types/navigation";
 
