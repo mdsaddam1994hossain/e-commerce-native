@@ -7,11 +7,12 @@ import { ReStyleText } from "../ReStyleText/ReStyleText";
 
 type Props = {
   product: any;
+  isCalculate?: boolean;
 };
 
 const { white, light } = palette;
 
-const Cart: FC<Props> = ({ product }) => {
+const Cart: FC<Props> = ({ product, isCalculate }) => {
   console.log(product);
 
   const onResuceProduct = () => {
@@ -63,25 +64,27 @@ const Cart: FC<Props> = ({ product }) => {
           justifyContent="space-between"
         >
           <ReStyleText variant="heading6Primary">$29943</ReStyleText>
-          <ReStyleBox flexDirection="row">
-            <Pressable
-              onPress={onResuceProduct}
-              style={[styles.button, styles.leftRadious]}
-            >
-              <ReStyleText color="grey" fontFamily={"Poppins-Bold"}>
-                -
-              </ReStyleText>
-            </Pressable>
-            <ReStyleBox style={styles.textBox}>
-              <ReStyleText color="grey">1</ReStyleText>
+          {isCalculate && (
+            <ReStyleBox flexDirection="row">
+              <Pressable
+                onPress={onResuceProduct}
+                style={[styles.button, styles.leftRadious]}
+              >
+                <ReStyleText color="grey" fontFamily={"Poppins-Bold"}>
+                  -
+                </ReStyleText>
+              </Pressable>
+              <ReStyleBox style={styles.textBox}>
+                <ReStyleText color="grey">1</ReStyleText>
+              </ReStyleBox>
+              <Pressable
+                onPress={onIncrementProduct}
+                style={[styles.button, styles.rightRadious]}
+              >
+                <ReStyleText color="grey">+</ReStyleText>
+              </Pressable>
             </ReStyleBox>
-            <Pressable
-              onPress={onIncrementProduct}
-              style={[styles.button, styles.rightRadious]}
-            >
-              <ReStyleText color="grey">+</ReStyleText>
-            </Pressable>
-          </ReStyleBox>
+          )}
         </ReStyleBox>
       </ReStyleBox>
     </ReStyleBox>

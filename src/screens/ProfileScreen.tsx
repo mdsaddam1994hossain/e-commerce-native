@@ -12,6 +12,44 @@ const emailIcon = require("../../assets/email.png");
 const phoneIcon = require("../../assets/phone.png");
 const passwordIcon = require("../../assets/password.png");
 
+export const profileData = [
+  {
+    id: 1,
+    icon: genderIcon,
+    title: "Gender",
+    value: "Male",
+    screen: "Gender",
+  },
+  {
+    id: 2,
+    icon: dateIcon,
+    title: "Birthday",
+    value: "12-12-2000",
+    screen: "EditBirthday",
+  },
+  {
+    id: 3,
+    icon: emailIcon,
+    title: "Email",
+    value: "Derlaxy@yahoo.com",
+    screen: "EditEmail",
+  },
+  {
+    id: 4,
+    icon: phoneIcon,
+    title: "Phone Number",
+    value: "(307) 555-0133",
+    screen: "EditPhone",
+  },
+  {
+    id: 5,
+    icon: passwordIcon,
+    title: "Change Password",
+    value: "...............",
+    screen: "EditPassword",
+  },
+];
+
 const ProfileScreen = ({ navigation }: ApplicationScreenProps) => {
   const editInfo = (name: string) => {
     navigation.navigate(name);
@@ -20,7 +58,12 @@ const ProfileScreen = ({ navigation }: ApplicationScreenProps) => {
     <ReStyleBox flex={1} paddingTop="l" backgroundColor="white">
       <CustomHeader title="Profile" />
       <ReStyleBox paddingHorizontal="sm" marginTop={"sm"}>
-        <ReStyleBox flexDirection="row" gap="sm" alignItems="center">
+        <ReStyleBox
+          marginBottom="sm"
+          flexDirection="row"
+          gap="sm"
+          alignItems="center"
+        >
           <Image
             source={profileImg}
             style={styles.proImg}
@@ -42,26 +85,40 @@ const ProfileScreen = ({ navigation }: ApplicationScreenProps) => {
             </ReStyleText>
           </ReStyleBox>
         </ReStyleBox>
-        <Pressable onPress={() => editInfo("Gender")}>
+        {profileData.map((item, index) => {
+          return (
+            <Pressable key={index} onPress={() => editInfo(item.screen)}>
+              <ReStyleBox marginTop="lg">
+                <ProfileInfoCard
+                  title={item.title}
+                  value={item.value}
+                  icon={item.icon}
+                />
+              </ReStyleBox>
+            </Pressable>
+          );
+        })}
+
+        {/* <Pressable onPress={() => editInfo("Gender")}>
           <ReStyleBox marginTop="xl">
             <ProfileInfoCard title="Gender" value="Male" icon={genderIcon} />
           </ReStyleBox>
-        </Pressable>
-        <ReStyleBox marginTop="lg">
+        </Pressable> */}
+        {/* <ReStyleBox marginTop="lg">
           <ProfileInfoCard
             title="Birthday"
             value="12-12-2000"
             icon={dateIcon}
           />
-        </ReStyleBox>
-        <ReStyleBox marginTop="lg">
+        </ReStyleBox> */}
+        {/* <ReStyleBox marginTop="lg">
           <ProfileInfoCard
             title="Email"
             value="Derlaxy@yahoo.com"
             icon={emailIcon}
           />
-        </ReStyleBox>
-        <ReStyleBox marginTop="lg">
+        </ReStyleBox> */}
+        {/* <ReStyleBox marginTop="lg">
           <ProfileInfoCard
             title="Phone Number"
             value="(307) 555-0133"
@@ -73,8 +130,8 @@ const ProfileScreen = ({ navigation }: ApplicationScreenProps) => {
             title="Change Password"
             value="..............."
             icon={passwordIcon}
-          />
-        </ReStyleBox>
+          /> */}
+        {/* </ReStyleBox> */}
       </ReStyleBox>
     </ReStyleBox>
   );

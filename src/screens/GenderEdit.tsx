@@ -8,6 +8,7 @@ import { ApplicationScreenProps } from "../types/navigation";
 import PrimaryButton from "../../src/components/button/PrimaryButton";
 import { StyleSheet } from "react-native";
 import { useState } from "react";
+import CustomHeader from "../../src/components/CustomHeader/CustomHeader";
 
 const { light, blue } = palette;
 const { s } = space;
@@ -26,30 +27,29 @@ const GenderEditScreen = ({ navigation }: ApplicationScreenProps) => {
     setSelectedItem(itemValue);
   };
   return (
-    <ReStyleBox
-      flex={1}
-      backgroundColor="white"
-      paddingTop="xl"
-      paddingHorizontal="sm"
-    >
-      <ReStyleText variant={"heading5"} color="dark">
-        Choose Gender
-      </ReStyleText>
-      <Picker
-        mode="dropdown"
-        selectedValue={selectedItem}
-        onValueChange={handleItemChange}
-        style={styles.input}
-      >
-        {items.map((item, index) => (
-          <Picker.Item
-            key={index}
-            label={item}
-            value={item}
-            fontFamily="Poppins-Bold"
-          />
-        ))}
-      </Picker>
+    <ReStyleBox flex={1} backgroundColor="white" paddingTop="l">
+      <CustomHeader title={"Gender"} />
+
+      <ReStyleBox paddingHorizontal="sm" paddingTop="sm">
+        <ReStyleText variant={"heading5"} color="dark">
+          Choose Gender
+        </ReStyleText>
+        <Picker
+          mode="dropdown"
+          selectedValue={selectedItem}
+          onValueChange={handleItemChange}
+          style={styles.input}
+        >
+          {items.map((item, index) => (
+            <Picker.Item
+              key={index}
+              label={item}
+              value={item}
+              fontFamily="Poppins-Bold"
+            />
+          ))}
+        </Picker>
+      </ReStyleBox>
 
       <ReStyleBox style={styles.button}>
         <PrimaryButton

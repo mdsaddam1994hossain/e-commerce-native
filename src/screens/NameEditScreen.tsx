@@ -1,71 +1,57 @@
 import { useState } from "react";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet } from "react-native";
 import { space } from "../../src/theme/spacing";
 import { palette } from "../../src/theme/palette";
 import { ReStyleBox } from "../components/ReStyleBox/ReStyleBox";
-import { ReStyleText } from "../components/ReStyleText/ReStyleText";
 
 import { ApplicationScreenProps } from "../types/navigation";
 import PrimaryButton from "../../src/components/button/PrimaryButton";
+import CustomHeader from "../../src/components/CustomHeader/CustomHeader";
+import MyTextInput from "../../src/components/Input/MyInput";
 
 const { light, blue } = palette;
 const { s } = space;
 
 const NameEditScreen = ({ navigation }: ApplicationScreenProps) => {
-  const [isFNameFocused, setIsFNameFocused] = useState(false);
-  const [isSNameFocused, setIsSNameFocused] = useState(false);
+  const [fName, setFName] = useState<string>("");
+  const [lName, setLName] = useState<string>("");
 
-  const nameChange = () => {
-    console.log("nave change success");
+  const saveChange = () => {
+    console.log("nave change success fname=", fName, "and last name", lName);
     navigation.navigate("Profile");
   };
-  const handleFocusFirst = () => {
-    setIsFNameFocused(true);
-  };
 
-  const handleBlurFirst = () => {
-    setIsFNameFocused(false);
+  const handleInputChangeFname = (text: string) => {
+    setFName(text);
   };
-  const handleFocusSecond = () => {
-    setIsSNameFocused(true);
-  };
-
-  const handleBlurSecond = () => {
-    setIsSNameFocused(false);
+  const handleInputChangeLname = (text: string) => {
+    setLName(text);
   };
 
   return (
-    <ReStyleBox
-      flex={1}
-      backgroundColor="white"
-      paddingTop="xl"
-      paddingHorizontal="sm"
-    >
-      <ReStyleText variant={"heading5"} color="dark">
-        First Name
-      </ReStyleText>
-      <TextInput
-        placeholder={"Maximus"}
-        onFocus={handleFocusFirst}
-        onBlur={handleBlurFirst}
-        style={[styles.input, isFNameFocused ? styles.focusedInput : null]}
-      />
+    <ReStyleBox flex={1} backgroundColor="white" paddingTop="l">
+      <CustomHeader title={"Name"} />
 
-      <ReStyleText variant={"heading5"} color="dark">
-        Last Name
-      </ReStyleText>
-      <TextInput
-        placeholder={"Gold"}
-        onFocus={handleFocusSecond}
-        onBlur={handleBlurSecond}
-        style={[styles.input, isSNameFocused ? styles.focusedInput : null]}
-      />
+      <ReStyleBox paddingHorizontal="sm" marginTop="sm">
+        <MyTextInput
+          label="First Name"
+          placeholder={"Maximus"}
+          onChange={(text) => handleInputChangeFname(text)}
+        />
+
+        <MyTextInput
+          label="Last Name"
+          placeholder={"Gold"}
+          onChange={(text) => handleInputChangeLname(text)}
+        />
+      </ReStyleBox>
+
       <ReStyleBox style={styles.button}>
         <PrimaryButton
           text={"Save"}
           buttonVariant={"primary"}
           textVariant={"textHeader"}
-          onPress={nameChange}
+          onPress={saveChange}
         />
       </ReStyleBox>
     </ReStyleBox>

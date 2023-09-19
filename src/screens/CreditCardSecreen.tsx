@@ -5,6 +5,7 @@ import { StyleSheet } from "react-native";
 
 import CreditCard from "../../src/components/CreditCard/CreditCard";
 import PrimaryButton from "../../src/components/button/PrimaryButton";
+import CustomHeader from "../../src/components/CustomHeader/CustomHeader";
 
 const CreditCardSecreen = ({ navigation }: ApplicationScreenProps) => {
   const addCard = () => {
@@ -12,17 +13,15 @@ const CreditCardSecreen = ({ navigation }: ApplicationScreenProps) => {
     console.log("card add");
   };
   return (
-    <ReStyleBox
-      flex={1}
-      backgroundColor="white"
-      paddingTop="xl"
-      paddingHorizontal="sm"
-    >
-      <ReStyleBox>
+    <ReStyleBox flex={1} backgroundColor="white" paddingTop="l">
+      <CustomHeader title={"Credit Card And Debit"} />
+
+      <ReStyleBox paddingTop={"sm"} paddingHorizontal="sm">
         <CreditCard bgColor="blue" />
-      </ReStyleBox>
-      <ReStyleBox marginTop={"sm"}>
-        <CreditCard bgColor="purpel" />
+
+        <ReStyleBox paddingTop={"sm"}>
+          <CreditCard bgColor="purpel" />
+        </ReStyleBox>
       </ReStyleBox>
       <ReStyleBox style={styles.button}>
         <PrimaryButton

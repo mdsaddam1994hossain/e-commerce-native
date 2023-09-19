@@ -4,6 +4,7 @@ import {
   TSizeData,
   TRecomended,
   TAccountCard,
+  TAddressData,
 } from "./data.t";
 
 const shirt = require("../../assets/shirt.png");
@@ -208,4 +209,21 @@ export const accountData: TAccountCard[] = [
   { id: 1, icon: orderIcon, title: "Order", screen: "Order" },
   { id: 1, icon: addressIcon, title: "Address", screen: "Address" },
   { id: 1, icon: cardIcon, title: "Payment", screen: "Payment" },
+];
+
+export const AddressData: TAddressData[] = [
+  {
+    id: 1,
+    title: "Priscekila",
+    fullAddress:
+      "3711 Spring Hill Rd undefined Tailahassee, Nevada 52874 United States",
+    phone: "+99 1234567890",
+  },
+  {
+    id: 2,
+    title: "Ahmad Khaidir",
+    fullAddress:
+      "4858 Spring Hill Rd undefined Tailahassee, Nevada 52874 United States",
+    phone: "+99 123456448570",
+  },
 ];

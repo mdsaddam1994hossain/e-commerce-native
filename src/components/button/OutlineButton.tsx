@@ -24,7 +24,7 @@ type TPrimaryButtonProps = {
   textVariant?: TTextVariants | keyof ReStyleTheme["textVariants"];
 };
 
-const PrimaryButton: React.FC<TPrimaryButtonProps> = ({
+const OutlineButton: React.FC<TPrimaryButtonProps> = ({
   text,
   buttonVariant,
   textVariant,
@@ -34,10 +34,12 @@ const PrimaryButton: React.FC<TPrimaryButtonProps> = ({
   return (
     <ReStyleButton variant={buttonVariant}>
       <TouchableOpacity onPress={onPress} disabled={!isChecked}>
-        <ReStyleText variant={"buttonText"}>{text}</ReStyleText>
+        <ReStyleText variant={"buttonText"} color="grey">
+          {text}
+        </ReStyleText>
       </TouchableOpacity>
     </ReStyleButton>
   );
 };
 
-export default PrimaryButton;
+export default OutlineButton;

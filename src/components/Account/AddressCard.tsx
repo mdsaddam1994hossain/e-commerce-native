@@ -6,11 +6,18 @@ import { ReStyleText } from "../ReStyleText/ReStyleText";
 
 type Props = {
   editAddress: () => void;
+  deleteAddress: () => void;
   title: string;
   fullAddress: string;
   phone: string;
 };
-const AddressCard: FC<Props> = ({ editAddress, title, phone, fullAddress }) => {
+const AddressCard: FC<Props> = ({
+  editAddress,
+  deleteAddress,
+  title,
+  phone,
+  fullAddress,
+}) => {
   return (
     <ReStyleBox paddingHorizontal="sm" marginTop={"sm"}>
       <ReStyleBox
@@ -43,7 +50,7 @@ const AddressCard: FC<Props> = ({ editAddress, title, phone, fullAddress }) => {
               onPress={editAddress}
             />
           </ReStyleBox>
-          <Pressable>
+          <Pressable onPress={deleteAddress}>
             <Image source={require("../../../assets/deleteIcon.png")} />
           </Pressable>
         </ReStyleBox>

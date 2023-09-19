@@ -70,6 +70,18 @@ export interface IButtonVariants {
     shadowOffset?: { width: number; height: number };
     shadowRadius?: number;
   };
+  outline: {
+    backgroundColor: string;
+    shadowOpacity?: number;
+    elevation?: number;
+    flex?: number;
+    borderRadius?: number;
+    shadowColor?: string;
+    shadowOffset?: { width: number; height: number };
+    shadowRadius?: number;
+    borderWidth?: number;
+    borderColor?: string;
+  };
 }
 
 export interface ICardsVariant {

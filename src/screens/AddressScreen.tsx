@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { AddressData } from "../../src/Data/Data";
 import AddressCard from "../../src/components/Account/AddressCard";
 import PrimaryButton from "../../src/components/button/PrimaryButton";
 import CustomHeader from "../../src/components/CustomHeader/CustomHeader";
@@ -9,28 +10,17 @@ import { ApplicationScreenProps } from "../types/navigation";
 const AddressScreen = ({ navigation }: ApplicationScreenProps) => {
   const editAddress = () => {
     console.log("edit address");
+    navigation.navigate("EditAddress", { formData: null, country: "" });
+  };
+  const deleteAddress = () => {
+    console.log("edit address");
+    navigation.navigate("DeleteAddress");
   };
   const addAddress = () => {
     navigation.navigate("AddAddress");
     console.log("addAddress");
   };
 
-  const AddressData = [
-    {
-      id: 1,
-      title: "Priscekila",
-      fullAddress:
-        "3711 Spring Hill Rd undefined Tailahassee, Nevada 52874 United States",
-      phone: "+99 1234567890",
-    },
-    {
-      id: 2,
-      title: "Ahmad Khaidir",
-      fullAddress:
-        "4858 Spring Hill Rd undefined Tailahassee, Nevada 52874 United States",
-      phone: "+99 123456448570",
-    },
-  ];
   return (
     <ReStyleBox flex={1} paddingTop="l" backgroundColor="white">
       <CustomHeader title={"Address"} />
@@ -39,6 +29,7 @@ const AddressScreen = ({ navigation }: ApplicationScreenProps) => {
           <ReStyleBox key={index}>
             <AddressCard
               editAddress={editAddress}
+              deleteAddress={deleteAddress}
               title={item.title}
               phone={item.phone}
               fullAddress={item.fullAddress}

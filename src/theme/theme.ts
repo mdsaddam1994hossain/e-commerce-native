@@ -157,6 +157,14 @@ const theme = createTheme<TThimeProps>({
       shadowOffset: { width: 0, height: 8 },
       shadowRadius: 30,
     },
+    outline: {
+      backgroundColor: "white",
+      flex: 1,
+      borderRadius: 5,
+      shadowColor: "dark",
+      borderWidth: 1,
+      borderColor: "light",
+    },
   },
   cardVariants: {
     defaults: {

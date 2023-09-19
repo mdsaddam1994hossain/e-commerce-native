@@ -23,6 +23,7 @@ interface TextInputProps {
   focus?: boolean;
   editable?: boolean;
   label?: string;
+  password?: boolean;
 }
 
 const { light, blue } = palette;
@@ -40,6 +41,7 @@ const MyTextInput: FC<TextInputProps> = ({
   focus,
   editable,
   label,
+  password = false,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -65,6 +67,7 @@ const MyTextInput: FC<TextInputProps> = ({
           isFocused ? styles.focusedInput : null,
           inputStyle,
         ]}
+        secureTextEntry={password ? true : false}
         placeholder={placeholder}
         onBlur={handleBlur}
         onChangeText={onChange}

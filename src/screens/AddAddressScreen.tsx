@@ -1,4 +1,4 @@
-import { Platform, ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import PrimaryButton from "../../src/components/button/PrimaryButton";
 import { ReStyleText } from "../../src/components/ReStyleText/ReStyleText";
 import { ReStyleBox } from "../../src/components/ReStyleBox/ReStyleBox";
@@ -9,6 +9,8 @@ import { palette } from "../../src/theme/palette";
 import { space } from "../../src/theme/spacing";
 import { KeyboardAvoidingView } from "react-native";
 import MyTextInput from "../../src/components/Input/MyInput";
+import { ApplicationScreenProps } from "../types/navigation";
+import { TAddress } from "../../src/Data/data.t";
 
 const { light, white } = palette;
 const { s, l } = space;
@@ -21,10 +23,10 @@ const items = [
   "American Samoa",
 ];
 
-const AddAddressScreen = () => {
+const AddAddressScreen = ({ navigation }: ApplicationScreenProps) => {
   const [selectedItem, setSelectedItem] = useState<string>("");
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<TAddress>({
     fName: "",
     lName: "",
     streetAddress: "",
@@ -36,7 +38,7 @@ const AddAddressScreen = () => {
   });
 
   const handleInputChange = (field: string, text: string) => {
-    setFormData((prevData) => ({
+    setFormData((prevData: TAddress) => ({
       ...prevData,
       [field]: text,
     }));
@@ -44,6 +46,10 @@ const AddAddressScreen = () => {
 
   const addAddress = () => {
     console.log("address ...", formData);
+    navigation.navigate("EditAddress", {
+      formData: formData,
+      country: selectedItem,
+    });
   };
   const handleItemChange = (itemValue: string) => {
     setSelectedItem(itemValue);

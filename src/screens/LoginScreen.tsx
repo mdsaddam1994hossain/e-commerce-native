@@ -11,12 +11,13 @@ import { space } from "../../src/theme/spacing";
 import PrimaryButton from "../../src/components/button/PrimaryButton";
 import { palette } from "../../src/theme/palette";
 
+import { ReStyleBox } from "../../src/components/ReStyleBox/ReStyleBox";
+import { ReStyleText } from "../../src/components/ReStyleText/ReStyleText";
+
 const emailLogo = require("../../assets/Message.png");
 const passwordLogo = require("../../assets/lock.png");
 const googleLogo = require("../../assets/google.png");
 const facebookLogo = require("../../assets/facebook.png");
-import { ReStyleBox } from "../../src/components/ReStyleBox/ReStyleBox";
-import { ReStyleText } from "../../src/components/ReStyleText/ReStyleText";
 
 const { s, sm } = space;
 const { light, blue, white } = palette;

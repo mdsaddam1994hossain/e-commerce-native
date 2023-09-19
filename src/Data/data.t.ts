@@ -28,3 +28,21 @@ export interface TAccountCard {
   title: string;
   screen: string;
 }
+
+export interface TAddress {
+  fName: string;
+  lName: string;
+  streetAddress: string;
+  streetAddress2: string;
+  city: string;
+  stateProvince: string;
+  zipCode: string;
+  phoneNumber: string;
+}
+
+export interface TAddressData {
+  id: number;
+  title: string;
+  fullAddress: string;
+  phone: string;
+}

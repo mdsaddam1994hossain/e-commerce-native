@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  Image,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  TextInput,
-} from "react-native";
+import { Pressable, ScrollView, StyleSheet, TextInput } from "react-native";
 import { palette } from "../../src/theme/palette";
 
 import Cart from "../../src/components/ProductCard/Cart";
@@ -14,6 +8,7 @@ import { ReStyleText } from "../components/ReStyleText/ReStyleText";
 
 import { ApplicationScreenProps } from "../types/navigation";
 import PrimaryButton from "../../src/components/button/PrimaryButton";
+import PaymentDetails from "../../src/components/common/PaymentDetails";
 
 const { light, blue, white } = palette;
 
@@ -41,8 +36,13 @@ const CartScreen = ({ navigation }: ApplicationScreenProps) => {
           paddingTop="sm"
           paddingHorizontal="sm"
         >
-          <Cart product={"fg"} />
-          <Cart product={"fg"} />
+          {[1, 2].map((item, index) => {
+            return (
+              <ReStyleBox key={index}>
+                <Cart product={"fg"} isCalculate={true} />
+              </ReStyleBox>
+            );
+          })}
 
           <ReStyleBox flexDirection="row" marginTop="l">
             <TextInput
@@ -56,74 +56,9 @@ const CartScreen = ({ navigation }: ApplicationScreenProps) => {
             </Pressable>
           </ReStyleBox>
 
-          <ReStyleBox
-            borderRadius={5}
-            borderWidth={1}
-            borderColor="light"
-            padding="m"
-            marginVertical={"m"}
-          >
-            <ReStyleBox
-              flexDirection="row"
-              paddingTop={"s"}
-              justifyContent="space-between"
-            >
-              <ReStyleBox>
-                <ReStyleText variant="bodyTextSmall" color="grey">
-                  Items (3)
-                </ReStyleText>
-                <ReStyleText
-                  variant="bodyTextSmall"
-                  color="grey"
-                  marginVertical={"s"}
-                >
-                  Shipping
-                </ReStyleText>
-                <ReStyleText variant="bodyTextSmall" color="grey">
-                  Import Charges
-                </ReStyleText>
-              </ReStyleBox>
-              <ReStyleBox>
-                <ReStyleText
-                  variant="bodyTextSmall"
-                  color="dark"
-                  textAlign={"right"}
-                >
-                  $598.86
-                </ReStyleText>
-                <ReStyleText
-                  variant="bodyTextSmall"
-                  color="dark"
-                  textAlign={"right"}
-                  marginVertical={"s"}
-                >
-                  $40.00
-                </ReStyleText>
-                <ReStyleText
-                  variant="bodyTextSmall"
-                  color="dark"
-                  textAlign={"right"}
-                >
-                  $128.00
-                </ReStyleText>
-              </ReStyleBox>
-            </ReStyleBox>
-            <ReStyleBox></ReStyleBox>
-            <Image
-              source={require("../../assets/line.png")}
-              style={styles.dottedLine}
-            />
-            <ReStyleBox flexDirection="row" justifyContent="space-between">
-              <ReStyleText variant="heading6" color="dark">
-                Total Price
-              </ReStyleText>
-              <ReStyleText variant="heading6" color="blue">
-                $766.86
-              </ReStyleText>
-            </ReStyleBox>
+          <ReStyleBox marginVertical="sm">
+            <PaymentDetails item={null} />
           </ReStyleBox>
-
-          <ReStyleBox></ReStyleBox>
           <ReStyleBox paddingVertical="xs" paddingBottom={"xxl"}>
             <PrimaryButton
               text={"Check Out"}
