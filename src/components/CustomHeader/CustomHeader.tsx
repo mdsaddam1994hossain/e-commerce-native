@@ -1,14 +1,23 @@
-import { useNavigation } from "@react-navigation/native";
 import { FC } from "react";
-import { Image, Pressable, StyleSheet, View } from "react-native";
+import { ImageSourcePropType } from "react-native";
+import { Image, Pressable, StyleSheet } from "react-native";
 import { ReStyleBox } from "../ReStyleBox/ReStyleBox";
 import { ReStyleText } from "../ReStyleText/ReStyleText";
+import { useNavigation } from "@react-navigation/native";
 
 type Props = {
   title: string;
+  backIcon?: boolean;
+  pluseIcon?: ImageSourcePropType;
+  handePress?: () => void;
 };
 
-const CustomHeader: FC<Props> = ({ title }) => {
+const CustomHeader: FC<Props> = ({
+  title,
+  backIcon = true,
+  pluseIcon,
+  handePress,
+}) => {
   const navigation = useNavigation();
   const goBack = () => {
     navigation.goBack();
@@ -16,23 +25,44 @@ const CustomHeader: FC<Props> = ({ title }) => {
   return (
     <ReStyleBox
       borderBottomWidth={1}
-      flexDirection="row"
       borderBottomColor={"light"}
-      height={50}
-      alignItems="center"
+      height={60}
       paddingHorizontal={"sm"}
+      justifyContent="center"
     >
-      <ReStyleBox flex={2}>
-        <Pressable onPress={goBack}>
-          <Image
-            source={require("../../../assets/back.png")}
-            style={styles.img}
-            resizeMode="contain"
-          />
-        </Pressable>
-      </ReStyleBox>
-      <ReStyleBox flex={14}>
-        <ReStyleText variant="heading4">{title}</ReStyleText>
+      <ReStyleBox
+        flexDirection="row"
+        alignItems="center"
+        justifyContent={"space-between"}
+      >
+        <ReStyleBox
+          justifyContent={"center"}
+          flexDirection="row"
+          gap={"m"}
+          alignItems="center"
+        >
+          {backIcon && (
+            <Pressable style={styles.press} onPress={goBack}>
+              <Image
+                source={require("../../../assets/back.png")}
+                style={styles.img}
+                resizeMode="contain"
+              />
+            </Pressable>
+          )}
+          <ReStyleText variant="heading4">{title}</ReStyleText>
+        </ReStyleBox>
+        {pluseIcon && (
+          <Pressable onPress={handePress}>
+            <ReStyleBox>
+              <Image
+                source={pluseIcon}
+                resizeMode="contain"
+                style={styles.plusImg}
+              />
+            </ReStyleBox>
+          </Pressable>
+        )}
       </ReStyleBox>
     </ReStyleBox>
   );
@@ -40,8 +70,15 @@ const CustomHeader: FC<Props> = ({ title }) => {
 
 const styles = StyleSheet.create({
   img: {
-    width: 6,
-    height: 12,
+    width: 8,
+    height: 16,
+  },
+  plusImg: {
+    width: 24,
+    height: 24,
+  },
+  press: {
+    width: 16,
   },
 });
 

@@ -17,7 +17,10 @@ type Props = {
 };
 const CustomLabel: FC<Props> = ({ focused, label }) => {
   return (
-    <ReStyleText variant={focused ? "bodyTextBoldBlue" : "bodyTextNormal"}>
+    <ReStyleText
+      paddingTop={"s"}
+      variant={focused ? "bodyTextBoldBlue" : "bodyTextNormal"}
+    >
       {label}
     </ReStyleText>
   );
@@ -25,12 +28,16 @@ const CustomLabel: FC<Props> = ({ focused, label }) => {
 
 const BottomTab = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: { paddingVertical: 16 },
+        headerShown: false,
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          headerShown: false,
           tabBarLabel: ({ focused }) => (
             <CustomLabel focused={focused} label="Home" />
           ),
@@ -50,7 +57,6 @@ const BottomTab = () => {
         name="Explore"
         component={ExploreScreen}
         options={{
-          headerShown: false,
           tabBarLabel: ({ focused }) => (
             <CustomLabel focused={focused} label="Explore" />
           ),
@@ -67,7 +73,7 @@ const BottomTab = () => {
         }}
       />
       <Tab.Screen
-        name="Your Cart"
+        name="Cart"
         component={CartScreen}
         options={{
           tabBarLabel: ({ focused }) => (

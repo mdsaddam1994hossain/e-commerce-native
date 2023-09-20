@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: light,
     paddingHorizontal: 10,
-    paddingLeft: 40,
+    paddingLeft: 45,
     borderRadius: 5,
     marginVertical: s,
     fontFamily: "Poppins-Regular",
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
   },
   logoPosition: {
     position: "absolute",
-    left: sm,
+    left: 14,
     top: 20,
   },
   eSize: {

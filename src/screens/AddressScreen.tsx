@@ -33,6 +33,7 @@ const AddressScreen = ({ navigation }: ApplicationScreenProps) => {
               title={item.title}
               phone={item.phone}
               fullAddress={item.fullAddress}
+              focus={false}
             />
           </ReStyleBox>
         );

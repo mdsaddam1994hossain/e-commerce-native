@@ -7,12 +7,24 @@ import { ReStyleBox } from "../ReStyleBox/ReStyleBox";
 import { ReStyleText } from "../ReStyleText/ReStyleText";
 
 type Props = {
+  title: string;
+  message: string;
+  buttonLable: string;
   action: () => void;
-  cancel: () => void;
+  cancel?: () => void;
   imgSrc: ImageSourcePropType;
+  cancelVisible?: boolean;
 };
 
-const Confirmation: FC<Props> = ({ action, cancel, imgSrc }) => {
+const Confirmation: FC<Props> = ({
+  title,
+  message,
+  buttonLable,
+  action,
+  cancel,
+  imgSrc,
+  cancelVisible = true,
+}) => {
   return (
     <ReStyleBox
       paddingHorizontal="sm"
@@ -22,17 +34,25 @@ const Confirmation: FC<Props> = ({ action, cancel, imgSrc }) => {
     >
       <Image source={imgSrc} style={styles.img} resizeMode="contain" />
       <ReStyleText variant="heading2" color="dark">
-        Confirmation
+        {title}
       </ReStyleText>
-      <ReStyleText variant="bodyTextNormal">
-        Are You sure wanna delete address
-      </ReStyleText>
+      <ReStyleText variant="bodyTextNormal">{message}</ReStyleText>
       <ReStyleBox height={57} marginTop="sm" width="100%">
-        <PrimaryButton text="Delete" buttonVariant="primary" onPress={action} />
+        <PrimaryButton
+          text={buttonLable}
+          buttonVariant="primary"
+          onPress={action}
+        />
       </ReStyleBox>
-      <ReStyleBox height={57} marginTop="sm" width="100%">
-        <OutlineButton text="Cancel" buttonVariant="outline" onPress={cancel} />
-      </ReStyleBox>
+      {cancelVisible && cancel && (
+        <ReStyleBox height={57} marginTop="sm" width="100%">
+          <OutlineButton
+            text="Cancel"
+            buttonVariant="outline"
+            onPress={cancel}
+          />
+        </ReStyleBox>
+      )}
     </ReStyleBox>
   );
 };

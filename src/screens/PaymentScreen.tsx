@@ -5,10 +5,14 @@ import { ReStyleBox } from "../components/ReStyleBox/ReStyleBox";
 import { ApplicationScreenProps } from "../types/navigation";
 import CustomHeader from "../../src/components/CustomHeader/CustomHeader";
 
-const PaymentScreen = ({ navigation }: ApplicationScreenProps) => {
+const PaymentScreen = ({ navigation, route }: ApplicationScreenProps) => {
+  const { prevRouter }: any = route?.params;
   const accountDetails = (screen: string) => {
     navigation.navigate(screen);
   };
+
+  console.log(prevRouter, "prev router...");
+
   return (
     <ReStyleBox flex={1} backgroundColor="white" paddingTop="l">
       <CustomHeader title={"Payment"} />
@@ -19,7 +23,7 @@ const PaymentScreen = ({ navigation }: ApplicationScreenProps) => {
               <AccoutInfoCard
                 icon={item.icon}
                 title={item.title}
-                screen={item.screen}
+                screen={prevRouter === "checkout" ? "ChooseCard" : item.screen}
                 accountDetails={accountDetails}
               />
             </ReStyleBox>

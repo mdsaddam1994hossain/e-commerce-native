@@ -10,6 +10,7 @@ type Props = {
   title: string;
   fullAddress: string;
   phone: string;
+  focus: boolean;
 };
 const AddressCard: FC<Props> = ({
   editAddress,
@@ -17,12 +18,13 @@ const AddressCard: FC<Props> = ({
   title,
   phone,
   fullAddress,
+  focus,
 }) => {
   return (
     <ReStyleBox paddingHorizontal="sm" marginTop={"sm"}>
       <ReStyleBox
         borderWidth={1}
-        borderColor="light"
+        borderColor={focus ? "blue" : "light"}
         borderRadius={5}
         padding="sm"
       >

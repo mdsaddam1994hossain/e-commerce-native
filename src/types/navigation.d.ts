@@ -11,7 +11,7 @@ export type MainParamsList = {
   WriteReview: undefined;
   Explore: undefined;
   Profile: undefined;
-  "Your Cart": undefined;
+  Cart: undefined;
   Offer: undefined;
   Tabs: undefined;
   Name: undefined;
@@ -30,6 +30,14 @@ export type MainParamsList = {
   AddAddress: undefined;
   EditAddress: undefined;
   DeleteAddress: undefined;
+  ShipTo: undefined;
+  ChooseCard: undefined;
+  OrderSuccess: undefined;
+  Favorite: undefined;
+  Notification: undefined;
+  NotiOffer: undefined;
+  NotiFeed: undefined;
+  NotiActivity: undefined;
 };
 
 export type ApplicationStackParamList = {
@@ -42,7 +50,7 @@ export type ApplicationStackParamList = {
   WriteReview: NavigatorScreenParams<MainParamsList>;
   Explore: NavigatorScreenParams<MainParamsList>;
   Profile: NavigatorScreenParams<MainParamsList>;
-  "Your Cart": NavigatorScreenParams<MainParamsList>;
+  Cart: NavigatorScreenParams<MainParamsList>;
   Offer: NavigatorScreenParams<MainParamsList>;
   Tabs: NavigatorScreenParams<MainParamsList>;
   Name: NavigatorScreenParams<MainParamsList>;
@@ -61,6 +69,14 @@ export type ApplicationStackParamList = {
   AddAddress: NavigatorScreenParams<MainParamsList>;
   EditAddress: NavigatorScreenParams<MainParamsList>;
   DeleteAddress: NavigatorScreenParams<MainParamsList>;
+  ShipTo: NavigatorScreenParams<MainParamsList>;
+  ChooseCard: NavigatorScreenParams<MainParamsList>;
+  OrderSuccess: NavigatorScreenParams<MainParamsList>;
+  Favorite: NavigatorScreenParams<MainParamsList>;
+  Notification: NavigatorScreenParams<MainParamsList>;
+  NotiOffer: NavigatorScreenParams<MainParamsList>;
+  NotiFeed: NavigatorScreenParams<MainParamsList>;
+  NotiActivity: NavigatorScreenParams<MainParamsList>;
 };
 
 export type ApplicationScreenProps =

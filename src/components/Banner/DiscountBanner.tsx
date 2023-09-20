@@ -29,7 +29,7 @@ const DiscountBanner: FC<Props> = ({ title, discount }) => {
           gap="xs"
         >
           <ReStyleBox
-            backgroundColor="light"
+            backgroundColor="white"
             borderRadius={5}
             width={42}
             height={41}
@@ -40,7 +40,7 @@ const DiscountBanner: FC<Props> = ({ title, discount }) => {
           </ReStyleBox>
           <ReStyleText variant="buttonText">:</ReStyleText>
           <ReStyleBox
-            backgroundColor="light"
+            backgroundColor="white"
             borderRadius={5}
             width={42}
             height={41}
@@ -51,7 +51,7 @@ const DiscountBanner: FC<Props> = ({ title, discount }) => {
           </ReStyleBox>
           <ReStyleText variant="buttonText">:</ReStyleText>
           <ReStyleBox
-            backgroundColor="light"
+            backgroundColor="white"
             borderRadius={5}
             width={42}
             height={41}

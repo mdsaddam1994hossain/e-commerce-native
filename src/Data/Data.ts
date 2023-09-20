@@ -1,3 +1,4 @@
+import { ImageSourcePropType } from "react-native";
 import {
   TCategoryData,
   TColorData,
@@ -5,6 +6,8 @@ import {
   TRecomended,
   TAccountCard,
   TAddressData,
+  TNotiData,
+  TNotification,
 } from "./data.t";
 
 const shirt = require("../../assets/shirt.png");
@@ -29,6 +32,10 @@ const p6 = require("../../assets/p6.png");
 const cardIcon = require("../../assets/card.png");
 const paypal = require("../../assets/Paypal.png");
 const bank = require("../../assets/bank.png");
+const notiIcon = require("../../assets/Offer.png");
+const feedIcon = require("../../assets/feed.png");
+const actiIcon = require("../../assets/activity.png");
+const activityIcon = require("../../assets/activityIcon.png");
 
 const userIcon = require("../../assets/userActive.png");
 const orderIcon = require("../../assets/order.png");
@@ -225,5 +232,107 @@ export const AddressData: TAddressData[] = [
     fullAddress:
       "4858 Spring Hill Rd undefined Tailahassee, Nevada 52874 United States",
     phone: "+99 123456448570",
+  },
+];
+
+export const notificationData: TNotiData[] = [
+  {
+    id: 1,
+    img: notiIcon,
+    title: "Offer",
+    numberOfNotifi: 4,
+    screen: "NotiOffer",
+  },
+  {
+    id: 2,
+    img: feedIcon,
+    title: "Feed",
+    numberOfNotifi: 8,
+    screen: "NotiFeed",
+  },
+  {
+    id: 3,
+    img: actiIcon,
+    title: "Activity",
+    numberOfNotifi: 2,
+    screen: "NotiActivity",
+  },
+];
+
+export const OfferData: TNotification[] = [
+  {
+    id: 1,
+    img: notiIcon,
+    title: "The Best Title",
+    description:
+      "Culpa cillum consectetur labore nulla nullamagna liruree. Id veniam culpa officia aute dolor amet deserunt ex prodent commodo",
+    date: "April 30 , 2023 1:01pm",
+  },
+  {
+    id: 2,
+    img: notiIcon,
+    title: "SUMMER OFFER 98% Cashback",
+    description:
+      "Culpa cillum consectetur labore nulla nullamagna liruree. Id veniam culpa officia aute dolor amet deserunt ex prodent commodo",
+    date: "April 30 , 2023 1:01pm",
+  },
+  {
+    id: 3,
+    img: notiIcon,
+    title: "Special Offer 25% OFF",
+    description:
+      "Culpa cillum consectetur labore nulla nullamagna liruree. Id veniam culpa officia aute dolor amet deserunt ex prodent commodo",
+    date: "April 30 , 2023 1:01pm",
+  },
+];
+export const FeedData: TNotification[] = [
+  {
+    id: 1,
+    img: p1,
+    title: "New Product",
+    description: " Nike Air Zoom Pegasus 36 Miami - Special For your Activity",
+    date: "Jue 30 , 2023 5:06 PM",
+  },
+  {
+    id: 2,
+    img: p5,
+    title: "Best Product",
+    description:
+      "Culpa cillum consectetur labore nulla nullamagna liruree. Id veniam culpa officia aute dolor amet deserunt ex prodent commodo",
+    date: "April 30 , 2023 1:01pm",
+  },
+  {
+    id: 3,
+    img: p6,
+    title: "New Product",
+    description:
+      "Culpa cillum consectetur labore nulla nullamagna liruree. Id veniam culpa officia aute dolor amet deserunt ex prodent commodo",
+    date: "April 30 , 2023 1:01pm",
+  },
+];
+export const ActivityData: TNotification[] = [
+  {
+    id: 1,
+    img: activityIcon,
+    title: "Transaction Nike Air Zoom Product",
+    description:
+      "Culpa cillum consectetur labore nulla nullamagna liruree. Id veniam culpa officia aute dolor amet deserunt ex prodent commodo",
+    date: "April 30 , 2023 1:01pm",
+  },
+  {
+    id: 2,
+    img: activityIcon,
+    title: "Transaction Nike Air Xoom Pegasus 36 Miami",
+    description:
+      "Culpa cillum consectetur labore nulla nullamagna liruree. Id veniam culpa officia aute dolor amet deserunt ex prodent commodo",
+    date: "April 30 , 2023 1:01pm",
+  },
+  {
+    id: 3,
+    img: activityIcon,
+    title: "Transaction Nike Air Max",
+    description:
+      "Culpa cillum consectetur labore nulla nullamagna liruree. Id veniam culpa officia aute dolor amet deserunt ex prodent commodo",
+    date: "April 30 , 2023 1:01pm",
   },
 ];

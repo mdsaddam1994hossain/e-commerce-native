@@ -46,3 +46,19 @@ export interface TAddressData {
   fullAddress: string;
   phone: string;
 }
+
+export interface TNotiData {
+  id: number;
+  img: ImageSourcePropType;
+  title: string;
+  numberOfNotifi: number;
+  screen: string;
+}
+
+export interface TNotification {
+  id: number;
+  img: ImageSourcePropType;
+  title: string;
+  description: string;
+  date: string;
+}

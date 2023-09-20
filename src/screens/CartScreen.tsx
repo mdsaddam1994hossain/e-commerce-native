@@ -9,8 +9,11 @@ import { ReStyleText } from "../components/ReStyleText/ReStyleText";
 import { ApplicationScreenProps } from "../types/navigation";
 import PrimaryButton from "../../src/components/button/PrimaryButton";
 import PaymentDetails from "../../src/components/common/PaymentDetails";
+import CustomHeader from "../../src/components/CustomHeader/CustomHeader";
+import { space } from "../../src/theme/spacing";
 
 const { light, blue, white } = palette;
+const { l } = space;
 
 const CartScreen = ({ navigation }: ApplicationScreenProps) => {
   const [copponFocused, setCopponFocused] = useState(false);
@@ -18,7 +21,7 @@ const CartScreen = ({ navigation }: ApplicationScreenProps) => {
     console.log("apply coppon");
   };
   const checkout = () => {
-    console.log("checkout clicked");
+    navigation.navigate("ShipTo");
   };
 
   const handleFocusCoppon = () => {
@@ -30,6 +33,7 @@ const CartScreen = ({ navigation }: ApplicationScreenProps) => {
   };
   return (
     <ReStyleBox style={styles.container}>
+      <CustomHeader title="Your Cart" backIcon={false} />
       <ScrollView>
         <ReStyleBox
           backgroundColor={"white"}
@@ -77,6 +81,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: white,
+    paddingTop: l,
   },
   input: {
     borderWidth: 1,
