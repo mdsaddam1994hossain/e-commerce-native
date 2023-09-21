@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
+  Animated,
   Image,
   Keyboard,
   Modal,
@@ -25,14 +26,22 @@ const { light, blue } = palette;
 const EditBirthDateScreen = () => {
   const [selectedDate, setSelectedDate] = useState("");
   const [showCalender, setShowCalender] = useState(false);
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const changeBirthday = () => {
     console.log("change birthday");
   };
   const displayCalender = () => {
     setShowCalender(!showCalender);
-    Keyboard.dismiss();
   };
+
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 5000,
+      useNativeDriver: true,
+    }).start();
+  }, [fadeAnim]);
 
   return (
     <ReStyleBox flex={1} backgroundColor="white" paddingTop="l">
@@ -61,10 +70,11 @@ const EditBirthDateScreen = () => {
           </Pressable>
 
           {showCalender && (
-            <ReStyleBox marginTop={"lg"}>
+            <Animated.View style={{ opacity: fadeAnim, marginTop: 20 }}>
               <Calendar
                 onDayPress={(day) => {
                   setSelectedDate(day.dateString);
+                  setShowCalender(false);
                 }}
                 markedDates={{
                   [selectedDate]: { selected: true, disableTouchEvent: true },
@@ -87,7 +97,7 @@ const EditBirthDateScreen = () => {
                   textDisabledColor: "#d9e",
                 }}
               />
-            </ReStyleBox>
+            </Animated.View>
           )}
         </ReStyleBox>
       </ScrollView>

@@ -59,8 +59,8 @@ const Confirmation: FC<Props> = ({
 
 const styles = StyleSheet.create({
   img: {
-    width: 72,
-    height: 72,
+    width: 80,
+    height: 80,
   },
 });
 

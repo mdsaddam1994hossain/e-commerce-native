@@ -58,12 +58,6 @@ const LoginScreen = ({ navigation }: ApplicationScreenProps) => {
     >
       <ScrollView style={styles.siteSpace}>
         <ReStyleBox flex={1} paddingTop="xxxl">
-          {/* <NotificationCard
-           
-            title="The Best Title"
-            description="Culpa cillum consectetur labore nulla nulla mag irure. Id cupla officia aute dolor amet deserunt ex proident."
-            date="April 30,2023 1:01 PM"
-          /> */}
           <LogoIcon />
           <ReStyleBox paddingTop="m">
             <ReStyleText variant={"heading4"} textAlign="center">

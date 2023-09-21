@@ -23,7 +23,6 @@ const EditPasswordScreen = () => {
             label="Old Password"
             placeholder="Old Password"
             password={true}
-            value="oldpassword"
             inputStyle={{ paddingLeft: 45 }}
           />
           <Image
@@ -36,7 +35,6 @@ const EditPasswordScreen = () => {
             label="New Password"
             placeholder="New Password"
             password={true}
-            value="newpassword"
             inputStyle={{ paddingLeft: 45 }}
           />
           <Image
@@ -48,7 +46,6 @@ const EditPasswordScreen = () => {
           <MyTextInput
             label="New Password Again"
             placeholder="New Password Again"
-            value="newpassword"
             password={true}
             inputStyle={{ paddingLeft: 45 }}
           />

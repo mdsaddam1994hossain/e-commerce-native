@@ -6,7 +6,8 @@ import * as Font from "expo-font";
 
 import StackNavigation from "./src/navigation";
 import theme from "./src/theme/theme";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import { ReStyleBox } from "./src/components/ReStyleBox/ReStyleBox";
 
 const customFonts = {
   "Poppins-Light": require("./assets/fonts/Poppins-Light.ttf"),
@@ -19,7 +20,6 @@ const customFonts = {
 async function loadFonts() {
   try {
     await Font.loadAsync(customFonts);
-    console.log("Fonts loaded successfully");
   } catch (error) {
     console.error("Font loading error:", error);
   }
@@ -36,9 +36,9 @@ export default function App() {
 
   if (!fontsLoaded) {
     return (
-      <View style={styles.loading}>
-        <Text>Loading...</Text>
-      </View>
+      <ReStyleBox style={styles.loading}>
+        <ActivityIndicator size="large" color="#40BFFF" />
+      </ReStyleBox>
     );
   }
 

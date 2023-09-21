@@ -9,18 +9,12 @@ import { ReStyleText } from "../components/ReStyleText/ReStyleText";
 import { ApplicationScreenProps } from "../types/navigation";
 
 const ExploreScreen = ({ navigation }: ApplicationScreenProps) => {
-  const handleFavorite = () => {
-    navigation.navigate("Favorite");
-  };
-  const handleNotification = () => {
-    navigation.navigate("Notification");
+  const handlePress = (screen: string) => {
+    navigation.navigate(screen);
   };
   return (
     <ReStyleBox paddingTop="l" flex={1} backgroundColor="white">
-      <SearchHeader
-        handleFavorite={handleFavorite}
-        handleNotification={handleNotification}
-      />
+      <SearchHeader handlePress={handlePress} title={"Search Product"} />
       <ReStyleBox paddingHorizontal="sm" paddingTop="sm">
         <ReStyleText variant="heading5" color="dark">
           {" "}

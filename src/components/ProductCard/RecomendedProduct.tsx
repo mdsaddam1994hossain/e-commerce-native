@@ -28,9 +28,9 @@ const RecomendedProduct: FC<Props> = ({
       borderWidth={1}
       borderColor="light"
       borderRadius={5}
-      width={"48%"}
+      width={"44%"}
       marginBottom="sm"
-      marginRight={index % 2 !== 0 ? "none" : "sm"}
+      marginRight={index % 2 !== 0 ? "none" : "s"}
     >
       <ReStyleBox borderRadius={5} justifyContent="center" alignItems="center">
         <Image source={src} style={styles.pimage} />
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   delete: {
     height: 18,
     width: 18,
-    marginLeft: 25,
+    marginLeft: 15,
     marginTop: -5,
   },
 });

@@ -8,6 +8,7 @@ import {
   TAddressData,
   TNotiData,
   TNotification,
+  TReiew,
 } from "./data.t";
 
 const shirt = require("../../assets/shirt.png");
@@ -186,6 +187,15 @@ export const sizeData: TSizeData[] = [
   { id: 4, value: "9" },
   { id: 5, value: "10" },
   { id: 6, value: "12" },
+];
+
+export const reviewItem: TReiew[] = [
+  { id: 1, value: "All Review", isStar: false },
+  { id: 2, value: "1", isStar: true },
+  { id: 3, value: "2", isStar: true },
+  { id: 4, value: "3", isStar: true },
+  { id: 5, value: "4", isStar: true },
+  { id: 6, value: "5", isStar: true },
 ];
 export const colorData: TColorData[] = [
   { id: 1, value: "yellow" },

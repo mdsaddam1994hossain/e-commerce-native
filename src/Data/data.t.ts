@@ -62,3 +62,9 @@ export interface TNotification {
   description: string;
   date: string;
 }
+
+export interface TReiew {
+  id: number;
+  value: string;
+  isStar: boolean;
+}

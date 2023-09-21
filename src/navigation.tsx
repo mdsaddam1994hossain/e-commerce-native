@@ -14,6 +14,7 @@ import EditEmailScreen from "./screens/EditEmailScreen";
 import EditPasswordScreen from "./screens/EditPasswordScreen";
 import EditPhoneScreen from "./screens/EditPhoneScreen";
 import FavouriteScreen from "./screens/FavouriteScreen";
+import FlashSaleScreen from "./screens/FlashSaleScreen";
 import GenderEditScreen from "./screens/GenderEdit";
 
 import LoginScreen from "./screens/LoginScreen";
@@ -81,6 +82,7 @@ function StackNavigation() {
       <Stack.Screen name="NotiOffer" component={NotiOfferScreen} />
       <Stack.Screen name="NotiFeed" component={NotiFeedScreen} />
       <Stack.Screen name="NotiActivity" component={NotiActivityScreen} />
+      <Stack.Screen name="FlashSale" component={FlashSaleScreen} />
     </Stack.Navigator>
   );
 }

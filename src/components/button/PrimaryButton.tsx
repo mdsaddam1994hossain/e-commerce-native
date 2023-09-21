@@ -1,6 +1,6 @@
 import { ResponsiveValue } from "@shopify/restyle";
 import React from "react";
-import { TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import { ReStyleTheme, TTextVariants } from "../../theme/theme";
 import { ReStyleButton } from "../ReStyleButton/ReStyleButton";
 import { ReStyleText } from "../ReStyleText/ReStyleText";
@@ -33,7 +33,11 @@ const PrimaryButton: React.FC<TPrimaryButtonProps> = ({
 }) => {
   return (
     <ReStyleButton variant={buttonVariant}>
-      <TouchableOpacity onPress={onPress} disabled={!isChecked}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={onPress}
+        disabled={!isChecked}
+      >
         <ReStyleText variant={"buttonText"}>{text}</ReStyleText>
       </TouchableOpacity>
     </ReStyleButton>
@@ -41,3 +45,12 @@ const PrimaryButton: React.FC<TPrimaryButtonProps> = ({
 };
 
 export default PrimaryButton;
+
+const styles = StyleSheet.create({
+  button: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

@@ -1,22 +1,28 @@
-import { FlatList, ScrollView, StyleSheet } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { ReStyleBox } from "../../src/components/ReStyleBox/ReStyleBox";
 import CustomHeader from "../../src/components/CustomHeader/CustomHeader";
-
-import { ApplicationScreenProps } from "../types/navigation";
+import DiscountBanner from "../../src/components/Banner/DiscountBanner";
 import { recoData } from "../../src/Data/Data";
 import RecomendedProduct from "../../src/components/ProductCard/RecomendedProduct";
+import { ReStyleText } from "../../src/components/ReStyleText/ReStyleText";
 
-const FavouriteScreen = ({ navigation }: ApplicationScreenProps) => {
+const serchIcon = require("../../assets/serchEx.png");
+
+const FlashSaleScreen = () => {
   return (
     <ReStyleBox flex={1} paddingTop="l" backgroundColor="white">
-      <CustomHeader title={"Favorite Product"} />
+      <CustomHeader title={"Super Flash Sale"} pluseIcon={serchIcon} />
+
       <ScrollView>
         <ReStyleBox paddingTop={"sm"} paddingHorizontal="sm">
+          <DiscountBanner title="Super Flash Sale" discount={50} />
+
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-            <ReStyleBox>
+            <ReStyleBox paddingTop={"sm"}>
               <FlatList
                 data={recoData}
+                scrollEnabled={true}
                 numColumns={2}
                 showsHorizontalScrollIndicator={false}
                 keyExtractor={(item) => item.id}
@@ -28,7 +34,7 @@ const FavouriteScreen = ({ navigation }: ApplicationScreenProps) => {
                     discount={item.discount}
                     index={index}
                     src={item.imgSrc}
-                    isFav={true}
+                    isFav={false}
                   />
                 )}
               />
@@ -40,6 +46,6 @@ const FavouriteScreen = ({ navigation }: ApplicationScreenProps) => {
   );
 };
 
-export default FavouriteScreen;
+export default FlashSaleScreen;
 
 const styles = StyleSheet.create({});

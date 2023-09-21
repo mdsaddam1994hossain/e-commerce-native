@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ImageSourcePropType } from "react-native";
+import { ImageSourcePropType, TouchableOpacity } from "react-native";
 import { Image, Pressable, StyleSheet } from "react-native";
 import { ReStyleBox } from "../ReStyleBox/ReStyleBox";
 import { ReStyleText } from "../ReStyleText/ReStyleText";
@@ -10,16 +10,14 @@ type Props = {
   title?: string;
   backIcon?: boolean;
   pluseIcon?: ImageSourcePropType;
-  handleFavorite?: () => void;
-  handleNotification?: () => void;
+  handlePress: (value: string) => void;
 };
 
 const SearchHeader: FC<Props> = ({
   title,
   backIcon = true,
   pluseIcon,
-  handleFavorite,
-  handleNotification,
+  handlePress,
 }) => {
   return (
     <ReStyleBox
@@ -39,20 +37,26 @@ const SearchHeader: FC<Props> = ({
           />
         </ReStyleBox>
         <ReStyleBox flexDirection={"row"} flex={2} gap="sm">
-          <Pressable style={styles.press} onPress={handleFavorite}>
+          <TouchableOpacity
+            style={styles.press}
+            onPress={() => handlePress("Favorite")}
+          >
             <Image
               source={require("../../../assets/love.png")}
               style={styles.img}
               resizeMode="contain"
             />
-          </Pressable>
-          <Pressable style={styles.press} onPress={handleNotification}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.press}
+            onPress={() => handlePress("Notification")}
+          >
             <Image
               source={require("../../../assets/notification.png")}
               style={styles.img}
               resizeMode="contain"
             />
-          </Pressable>
+          </TouchableOpacity>
         </ReStyleBox>
       </ReStyleBox>
     </ReStyleBox>
@@ -79,7 +83,7 @@ const styles = StyleSheet.create({
     width: 14,
     height: 14,
     left: 15,
-    top: 25,
+    top: 28,
   },
 });
 
