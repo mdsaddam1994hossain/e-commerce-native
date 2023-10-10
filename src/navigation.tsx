@@ -30,6 +30,7 @@ import PaymentScreen from "./screens/PaymentScreen";
 import ProductDetailsScreen from "./screens/ProductDetails";
 import ProfileScreen from "./screens/ProfileScreen";
 import ReviewScreen from "./screens/ReviewScreen";
+import SearchResultScreen from "./screens/SearchResultScreen";
 import ShipToScreen from "./screens/ShipToScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import WriteReviewScreen from "./screens/WriteReviewScreen";
@@ -83,6 +84,7 @@ function StackNavigation() {
       <Stack.Screen name="NotiFeed" component={NotiFeedScreen} />
       <Stack.Screen name="NotiActivity" component={NotiActivityScreen} />
       <Stack.Screen name="FlashSale" component={FlashSaleScreen} />
+      <Stack.Screen name="SearchResult" component={SearchResultScreen} />
     </Stack.Navigator>
   );
 }

@@ -39,6 +39,7 @@ export type MainParamsList = {
   NotiFeed: undefined;
   NotiActivity: undefined;
   FlashSale: undefined;
+  SearchResult: undefined;
 };
 
 export type ApplicationStackParamList = {
@@ -79,6 +80,7 @@ export type ApplicationStackParamList = {
   NotiFeed: NavigatorScreenParams<MainParamsList>;
   NotiActivity: NavigatorScreenParams<MainParamsList>;
   FlashSale: NavigatorScreenParams<MainParamsList>;
+  SearchResult: NavigatorScreenParams<MainParamsList>;
 };
 
 export type ApplicationScreenProps =

@@ -13,13 +13,21 @@ import { categorylData, megaData, productData, recoData } from "../Data/Data";
 import SearchHeader from "../../src/components/CustomHeader/SearchHeader";
 import { TouchableOpacity } from "react-native";
 
+const icon1 = require("../../assets/love.png");
+const icon2 = require("../../assets/love.png");
+
 const HomeScreen = ({ navigation }: ApplicationScreenProps) => {
   const handlePress = (screen: string) => {
     navigation.navigate(screen);
   };
   return (
     <ReStyleBox paddingTop="l" flex={1} backgroundColor="white">
-      <SearchHeader handlePress={handlePress} title={"Search Product"} />
+      <SearchHeader
+        handlePress={handlePress}
+        title={"Search Product"}
+        icon1={icon1}
+        icon2={icon2}
+      />
       <ScrollView>
         <ReStyleBox>
           <ReStyleBox margin="sm">

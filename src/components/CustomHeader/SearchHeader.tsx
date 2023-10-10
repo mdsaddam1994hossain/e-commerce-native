@@ -10,6 +10,8 @@ type Props = {
   title?: string;
   backIcon?: boolean;
   pluseIcon?: ImageSourcePropType;
+  icon1?: ImageSourcePropType;
+  icon2?: ImageSourcePropType;
   handlePress: (value: string) => void;
 };
 
@@ -17,6 +19,8 @@ const SearchHeader: FC<Props> = ({
   title,
   backIcon = true,
   pluseIcon,
+  icon1,
+  icon2,
   handlePress,
 }) => {
   return (
@@ -37,26 +41,22 @@ const SearchHeader: FC<Props> = ({
           />
         </ReStyleBox>
         <ReStyleBox flexDirection={"row"} flex={2} gap="sm">
-          <TouchableOpacity
-            style={styles.press}
-            onPress={() => handlePress("Favorite")}
-          >
-            <Image
-              source={require("../../../assets/love.png")}
-              style={styles.img}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.press}
-            onPress={() => handlePress("Notification")}
-          >
-            <Image
-              source={require("../../../assets/notification.png")}
-              style={styles.img}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
+          {icon1 && (
+            <TouchableOpacity
+              style={styles.press}
+              onPress={() => handlePress("Favorite")}
+            >
+              <Image source={icon1} style={styles.img} resizeMode="contain" />
+            </TouchableOpacity>
+          )}
+          {icon2 && (
+            <TouchableOpacity
+              style={styles.press}
+              onPress={() => handlePress("Notification")}
+            >
+              <Image source={icon2} style={styles.img} resizeMode="contain" />
+            </TouchableOpacity>
+          )}
         </ReStyleBox>
       </ReStyleBox>
     </ReStyleBox>
